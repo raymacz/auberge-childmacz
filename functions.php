@@ -53,10 +53,11 @@ function RBTM_CHILD_THEME_SLUG_parent_theme_options() {
 	if ( false === get_theme_mods() ) {
 		$parent_theme_options = get_option( 'theme_mods_' . get_template() );
 		update_option( 'theme_mods_' . get_stylesheet(), $parent_theme_options );
+                $x=0;
 	}
 } // /CHILD_THEME_SLUG_parent_theme_options
 
-// add_action( 'after_switch_theme', 'RBTM_CHILD_THEME_SLUG_parent_theme_options' );
+ add_action( 'after_switch_theme', 'RBTM_CHILD_THEME_SLUG_parent_theme_options' );
 
 /**
  * Put your custom PHP code below...
@@ -77,20 +78,21 @@ function rbtm_disable_parent_styles() {
 // check filter of styles
 add_filter('wmhook_wm_register_assets_register_styles', function($styles) {
    $reg_styles = array(
-            'wm-style-b4css'  => array( wm_get_stylesheet_directory_uri( 'assets/css/bootstrap.css' ) ),
+            // 'wm-style-b4css'  => array( wm_get_stylesheet_directory_uri( 'assets/css/bootstrap.css' ) ),
+            'wm-style-b4css'  => array( 'src' => 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css'),
     );
    //       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    $a =  array_slice($styles, 0, 3, true);
-    $b =  $reg_styles; 
-    $c =  array_slice($styles, 3, count($styles) - 1, true);    
+    $a =  array_slice($styles, 0, 0, true);
+    $b =  $reg_styles;
+    $c =  array_slice($styles, 1, count($styles) - 1, true);
     $styles = $a + $b  + $c;
-//    var_dump($styles); die();
    return $styles;
 }, 10, 1);
 
 // enqueue the newly added style
 add_filter('wmhook_wm_enqueue_assets_enqueue_styles', function($enqueue) {
-    array_splice($enqueue, 3, 0, 'wm-style-b4css' );
+    array_splice($enqueue, 1, 0, 'wm-style-b4css' );
+//    var_dump($enqueue);
    return $enqueue;
 }, 10, 1);
 
@@ -99,7 +101,7 @@ add_filter('wmhook_wm_enqueue_assets_enqueue_styles', function($enqueue) {
 
 // check filter of scripts
 add_filter('wmhook_wm_register_assets_register_scripts', function($scripts) {
-    
+
     // bootstrap 4 requirement
    $reg_scripts = array(
             'wm-script-tether'  => array( 'src' => '//cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js', 'deps' => array( 'jquery' ) ),
@@ -108,8 +110,8 @@ add_filter('wmhook_wm_register_assets_register_scripts', function($scripts) {
             'wm-script-easing'  => array( wm_get_stylesheet_directory_uri( 'assets/js/vendor/jquery-easing/jquery.easing.min.js' ), 'deps' => array( 'jquery' ) ),
     );
     $a =  array_slice($scripts, 0, 1, true);
-    $b =  $reg_scripts; 
-    $c =  array_slice($scripts, 1, count($scripts) - 1, true);    
+    $b =  $reg_scripts;
+    $c =  array_slice($scripts, 1, count($scripts) - 1, true);
     $scripts = $a + $b  + $c;
    return $scripts;
 });
@@ -117,9 +119,8 @@ add_filter('wmhook_wm_register_assets_register_scripts', function($scripts) {
 
 // enqueue the newly added script
 add_filter('wmhook_wm_enqueue_assets_enqueue_scripts', function($enqueue) {
-    array_splice($enqueue, 2, 0, array('wm-script-tether','wm-script-popper', 'wm-script-b4js') );
-    array_splice($enqueue, 7, 0, 'wm-script-easing' );
-//    var_dump($enqueue); die();
+    array_splice($enqueue, 0, 0, array('wm-script-tether','wm-script-popper', 'wm-script-b4js') );
+    array_splice($enqueue, 5, 0, 'wm-script-easing' );
    return $enqueue;
 }, 10, 1);
 
@@ -163,3 +164,60 @@ add_action( 'after_setup_theme', 'wm_remove_menu_social', 0); //#1
 //   echo "<pre>" . var_dump( $wp_filter['after_setup_theme'] ) . "</pre>";
 //   // echo "<pre>" . print_r($wp_filter, true) . "</pre>";
 // });
+
+
+
+add_action('wmhook_content_primary_before', function(){
+if ( is_front_page() && is_page() ) :
+   get_template_part( 'template-parts/content', 'services' );
+endif;
+}, 10, 1);
+
+add_action('wmhook_content_primary_before', function(){
+if ( is_front_page() && is_page() ) :
+   get_template_part( 'template-parts/content', 'menu' );
+endif;
+}, 10, 1);
+
+add_action('wmhook_content_primary_before', function(){
+if ( is_front_page() && is_page() ) :
+   get_template_part( 'template-parts/content', 'gal' );
+endif;
+}, 10, 1);
+
+add_action('wmhook_content_primary_before', function(){
+if ( is_front_page() && is_page() ) :
+   get_template_part( 'template-parts/content', 'chef' );
+endif;
+}, 10, 1);
+
+add_action('wmhook_content_primary_after', function(){
+if ( is_front_page() && is_page() ) :
+   get_template_part( 'template-parts/content', 'ambience' );
+endif;
+}, 10, 1);
+
+add_action('wmhook_content_primary_after', function(){
+if ( is_front_page() && is_page() ) :
+   get_template_part( 'template-parts/content', 'gal' );
+endif;
+}, 10, 1);
+
+add_action('wmhook_content_primary_after', function(){
+  if ( is_front_page() && is_page() ) :
+    get_template_part( 'template-parts/content', 'testimonial' );
+  endif;
+}, 10, 1);
+
+add_action('wmhook_content_primary_after', function(){
+  if ( is_front_page() && is_page() ) :
+    get_template_part( 'template-parts/content', 'loc' );
+  endif;
+}, 10, 1);
+
+
+add_action('wmhook_content_primary_after', function(){
+  if ( is_front_page() && is_page() ) :
+    get_template_part( 'template-parts/content', 'work' );
+  endif;
+}, 10, 1);

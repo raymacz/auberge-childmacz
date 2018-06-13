@@ -22,8 +22,8 @@ get_header();
 
 	while ( have_posts() ) : the_post();
 
-		get_template_part( 'template-parts/content', 'page' );
-		//get_template_part( 'template-parts/content', apply_filters( 'wmhook_single_content_type', get_post_format() ) );
+		// get_template_part( 'template-parts/content', 'page' );
+		get_template_part( 'template-parts/content', apply_filters( 'wmhook_single_content_type', get_post_format() ) );
 
 	endwhile;
 
