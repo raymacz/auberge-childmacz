@@ -108,6 +108,7 @@ add_filter('wmhook_wm_register_assets_register_scripts', function($scripts) {
             'wm-script-popper'  => array( 'src' => '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', 'deps' => array( 'jquery' ) ),
             'wm-script-b4js'    => array( 'src' => '//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', 'deps' => array( 'jquery' ) ),
             'wm-script-easing'  => array( wm_get_stylesheet_directory_uri( 'assets/js/vendor/jquery-easing/jquery.easing.min.js' ), 'deps' => array( 'jquery' ) ),
+            'wm-script-myfunctions'  => array( wm_get_stylesheet_directory_uri( 'assets/js/myfunctions.js' ), 'deps' => array( 'jquery' ) ),
     );
     $a =  array_slice($scripts, 0, 1, true);
     $b =  $reg_scripts;
@@ -121,6 +122,7 @@ add_filter('wmhook_wm_register_assets_register_scripts', function($scripts) {
 add_filter('wmhook_wm_enqueue_assets_enqueue_scripts', function($enqueue) {
     array_splice($enqueue, 0, 0, array('wm-script-tether','wm-script-popper', 'wm-script-b4js') );
     array_splice($enqueue, 5, 0, 'wm-script-easing' );
+    array_splice($enqueue, 6, 0, 'wm-script-myfunctions' );
    return $enqueue;
 }, 10, 1);
 
@@ -166,6 +168,48 @@ add_action( 'after_setup_theme', 'wm_remove_menu_social', 0); //#1
 // });
 
 
+function be_event_query( $query ) {
+
+	if( $query->is_main_query() && !$query->is_feed() && !is_admin() && $query->is_post_type_archive( 'event' ) ) {
+		$meta_query = array(
+			array(
+				'key' => 'be_events_manager_end_date',
+				'value' => time(),
+				'compare' => '>'
+			)
+		);
+		$query->set( 'meta_query', $meta_query );
+		$query->set( 'orderby', 'meta_value_num' );
+		$query->set( 'meta_key', 'be_events_manager_start_date' );
+		$query->set( 'order', 'ASC' );
+		$query->set( 'posts_per_page', '4' );
+	}
+}
+//add_action( 'pre_get_posts', 'be_event_query' );
+
+
+
+function RBTM_func_query_cpt( $query ) {
+
+  if ( !is_admin() && $query->is_main_query() && $query->is_post_type_archive('course_package') && !$query->is_feed() ) {
+
+     $query->set( 'post_type', array( 'post', 'my_custom_post_type') );
+     return $query;
+
+   }
+ //or include in category
+  if ( is_category('category-slug') && $query->is_main_query() ) {
+
+     $query->set( 'post_type', 'my_custom_post_type' );
+     return $query;
+
+   }
+}
+//add_action( 'pre_get_posts', 'RBTM_func_query_cpt' );
+
+
+
+// Frontpage Template
 
 add_action('wmhook_content_primary_before', function(){
 if ( is_front_page() && is_page() ) :
@@ -219,5 +263,11 @@ add_action('wmhook_content_primary_after', function(){
 add_action('wmhook_content_primary_after', function(){
   if ( is_front_page() && is_page() ) :
     get_template_part( 'template-parts/content', 'work' );
+  endif;
+}, 10, 1);
+
+add_action('shutdown', function(){
+  if ( is_front_page() && is_page() ) :
+    get_template_part( 'template-parts/content', 'query_sbox' );
   endif;
 }, 10, 1);

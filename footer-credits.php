@@ -13,16 +13,11 @@
  */
 
 
-
-
-
 /**
  * Helper variables
  */
 
     $custom_credits = (string) apply_filters('wmhook_wm_credits_output', '');
-
-
 
 /**
  * Requirements check
@@ -32,7 +27,13 @@
         return;
     }
 
+  // subscription page shortcode mailchimp
+    $my_postid = 2160;
 
+    $content_post = get_post($my_postid);
+    //var_dump($content_post);
+    $content = $content_post->post_content;
+    $content = apply_filters('the_content', $content);
 
 ?>
 
@@ -63,11 +64,34 @@
 
 	</div>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+<!-- subscribe form modal -->
+<div class="modal fade" id="subscribeModal" data-backdrop="static" data-keyboard="true" tabindex="-1" role="dialog" aria-labelledby="subscribeModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title " id="exampleModalLabel">Online Application Form</h5>
+        <h5 class="modal-title " id="subscribeModalLabel">Online Application Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php print $content; ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- application form modal -->
+<div class="modal fade" id="careerModal" tabindex="-1" role="dialog" aria-labelledby="careerModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="careerModalLabel">Online Application Form</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -84,7 +108,7 @@
             <input type="text" class="form-control" id="recipient-phone" placeholder="Your Phone">
           </div>
           <div class="form-group">
-            <textarea class="form-control" id="message-text" placeholder="Your Message" cols="30" rows="10"  ></textarea>
+            <textarea class="form-control" id="message-text" placeholder="Your Message" cols="30" rows="5"  ></textarea>
           </div>
           <div class="form-group">
             <p style="color: rgb(140, 140, 140); font-family: sans-serif;">Attach Your Resume (required)<br>
