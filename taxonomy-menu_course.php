@@ -11,17 +11,10 @@
 
 
 
-
-
 get_header();
 
 
 $mytax_obj= get_queried_object();
-          
-
-         var_dump($mytax_obj);
-         
-         
 	?>
 
 	<section class="archives-listing content-container">
@@ -30,15 +23,13 @@ $mytax_obj= get_queried_object();
 
 		<header class="page-header">
 			<?php
-                        
+                        // change the default title display text
                         $archtitle =  '<h1 class="page-title">';
                         $archtitle .= $mytax_obj->name.wm_paginated_suffix( 'small' );
                         $archtitle .= '</h1>';        
                         print $archtitle;
-                        echo" //get_query_var: ". get_query_var( 'taxonomy' );
-                        
 			the_archive_description( '<div class="taxonomy-description">', '</div>' );
-
+echo "rbtm_copy";
 			?>
 		</header>
 

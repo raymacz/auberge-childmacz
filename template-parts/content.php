@@ -26,17 +26,13 @@
 		<?php do_action( 'tha_entry_content_before' ); ?>
 
 		<?php
-
 		if ( is_single() ) {
 
 			the_content( apply_filters( 'wmhook_wm_excerpt_continue_reading', '' ) );
-
 		} else {
 
 			the_excerpt();
-
 		}
-
 		?>
 
 		<?php do_action( 'tha_entry_content_after' ); ?>

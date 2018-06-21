@@ -271,3 +271,39 @@ add_action('shutdown', function(){
     get_template_part( 'template-parts/content', 'query_sbox' );
   endif;
 }, 10, 1);
+
+// add post type 'course_package' to be able to display post meta in content
+function RBTM_change_post_meta($mymeta) {
+    // var_dump($mymeta);
+    $mymeta[] = 'course_package';
+    return $mymeta;
+}
+
+add_filter('wmhook_wm_post_meta_top_post_type', 'RBTM_change_post_meta',20, 1);
+
+
+// add meta price for post type 'course_package'
+function RBTM_change_content_title($mytitle) {
+    if ( 'course_package' === get_post_type() ) {
+        $mystr = '<a href="';
+        $mystr .= esc_url( get_permalink() );  //.http://site1.net/item/classic-burger/
+        $mystr .= '"><span class="food-menu-item-title">'.get_the_title().'</span>';
+        $mystr .= '<span class="food-menu-item-price"> $'. strip_tags( get_post_meta( get_the_ID(), "package_price", true ) ).'</span>';
+        $mystr .= '</a>';
+        $mytitle['title'] = $mystr;
+//        $mytitle['title'] = '<a href="http://site1.net/item/classic-burger/"><span class="food-menu-item-title">CLASSIC BURGER</span><span class="food-menu-item-price"> $5</span></a>';
+    } 
+//         var_dump($mytitle);
+    return $mytitle;
+}
+
+add_filter('wmhook_wm_post_title_args', 'RBTM_change_content_title',10, 1);
+
+
+// add style class for type 'course_package' to fix display in content
+function RBTM_wm_post_title_defaults($mytitle) {
+    $mytitle['class_container'] .= ' food-menu-item-header';
+    return $mytitle;
+}
+
+add_filter('wmhook_wm_post_title_defaults', 'RBTM_wm_post_title_defaults', 10, 1 );

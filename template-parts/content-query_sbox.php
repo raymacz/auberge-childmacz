@@ -70,16 +70,17 @@ add_action('shutdown', function(){
         echo "<p style='color: blue;'>Menu Package:    </p> ";
           // start template; =============================
           // echo" //the_post_thumbnail: "; // the_post_thumbnail();
-          echo" //the_title: ";
+          echo " //the_title: ";
           the_title($before = '<p>', $after = '</p>');
+          echo " //get_post_meta_package_price: ". strip_tags( get_post_meta( get_the_ID(), 'package_price', true ));
   //                echo" //the_excerpt: ";                the_excerpt();
-          echo" //the_content: ".get_the_content($more_link_text = null, $strip_teaser = false);
+          echo " //the_content: ".get_the_content($more_link_text = null, $strip_teaser = false);
   //                echo" //get_post_custom_keys: ".get_post_custom_keys()[6];
 //          echo" //vardump: ";        var_dump(get_post_custom_keys());
-          $term_taxonomy_id = get_post_meta(get_the_ID(), 'course_pack', true)['term_taxonomy_id'];
-          echo" //get_post_meta_term_taxonomy_id: ".$term_taxonomy_id;
+          $term_tax_id = get_post_meta(get_the_ID(), 'course_pack', true)['term_taxonomy_id'];
+          print "//get_post_meta_term_taxonomy_id: ".$term_tax_id;
           echo" //the_time: ";
-          the_time('F jS, Y');
+          the_time('F j, Y');
           echo" //the_author: ";
           the_author();
           the_permalink();
@@ -94,7 +95,7 @@ add_action('shutdown', function(){
                 array(
                   'taxonomy'=>'pack_tax',
                   'field'=> 'term_id',
-                  'terms'=>array($term_taxonomy_id),
+                  'terms'=>array($term_tax_id),
                   'include_children'=>true,
                   'operator'=>'AND',
                 ),

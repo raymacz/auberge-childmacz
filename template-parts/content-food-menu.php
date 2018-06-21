@@ -42,7 +42,7 @@
 
 <<?php echo tag_escape( $wrapper_tag ); ?> id="post-<?php the_ID(); ?>" <?php post_class(); echo apply_filters( 'wmhook_entry_container_atts', '' ); ?>>
 
-	<?php do_action( 'tha_entry_top' ); ?>
+	<?php do_action( 'tha_entry_top' ); echo '//rbtm_copy'; ?>
 
 	<div class="entry-content"<?php echo wm_schema_org( 'entry_body' ); ?>>
 
