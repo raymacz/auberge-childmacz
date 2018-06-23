@@ -2,7 +2,9 @@
 /**
  * Custom page template
  *
- * Template Name: Fullwidth page
+ * Template Name: Food menu
+ *
+ * Displays page content followed by food menu items.
  *
  * @package    Auberge
  * @copyright  WebMan Design, Oliver Juhas
@@ -12,7 +14,7 @@
  */
 
 /* translators: Custom page template name. */
-__( 'Fullwidth page', 'auberge' );
+__( 'Food menu', 'auberge' );
 
 
 
@@ -22,7 +24,9 @@ get_header();
 
 	while ( have_posts() ) : the_post();
 
-		get_template_part( 'template-parts/content', apply_filters( 'wmhook_single_content_type', get_post_format() ) );
+		if ( get_the_content() ) {
+			get_template_part( 'template-parts/content', 'page' );
+		}
 
 	endwhile;
 

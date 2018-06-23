@@ -43,9 +43,18 @@ body.home #content {
 }
 
 /** SERVICES **/
-section#services {
+section#services, .wrap-testi, .wrap-location, .wrap-menu  {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+.wrap-location {
+  margin-bottom: 60px;
+}
+
+.wrap-testi {
   padding-top: 20px;
-  margin-bottom: 40px;
 }
 .fa-stack-2x {
     color: hsl(45, 100%, 51%) !important;
@@ -58,6 +67,8 @@ section#services .p-title::after {
 section#about-chef {
     background-color: #675a3ad4;
     color: #fff;
+    padding-top: 40px;
+    padding-bottom: 60px;
 }
 section#about-chef h3 {
     color: #fff;
@@ -79,10 +90,6 @@ div.photo-wrap {
   margin: auto;
 }
 .block-tpl.chefs {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
   font-size: 18px;
   font-family: sans-serif;
   text-rendering: optimizeLegibility;
@@ -160,26 +167,47 @@ p.phone-icon a {
     border-color: hsl(45, 100%, 51%);
 }
 /* location, mailing & career */
-.wrap-location, .wrap-menu {
-  padding-top: 20px;
-  margin-bottom: 40px;
-}
+
 .mail-career {
     background-color: #675a3ad4;
-    padding: 40px 15px 60px 15px;
+    padding: 80px 15px 100px 15px;
     color: #fff;
 }
 .mail-career h3.p-title {
     color: #fff;
 }
+
+ /* .site-branding {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 auto;
+  min-height: 65px;
+  justify-content: center;
+  text-align:center;
+} */
+
 /* gallery ambience */
-div#galtest {
-    margin-bottom: 12px;
+
+div.ngg-galleryoverview {
+  display: flex !important;
+  flex-direction: row;
+  flex: 0 1 auto;
+  justify-content: center;
 }
+
+.ngg-gallery-thumbnail-box {
+  margin: 0 auto;
+}
+
+div#galfood {
+    padding-bottom: 20px;
+}
+
+
+
+
 /* testimonials */
-.wrap-testi {
-   padding-top: 20px;
-}
+
 blockquote.bgtesti {
   margin: 0;
   padding: 0;
@@ -214,7 +242,7 @@ blockquote.bgtesti span.more,
 span.client {
   font-size: 0;
   line-height: 0;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .quote:hover .more, .quote:hover .client {
@@ -297,4 +325,25 @@ label input.form-control {
 }
 .modal-body .mc4wp-notice, .modal-body .mc4wp-error {
   color: red;
+}
+
+/* menupack page */
+.menupack h1.page-title {
+    padding-top: 0;
+    border-width: 0;
+}
+/** submenu menu **/
+@media only screen and (min-width: 80em) {
+  .sticky-menu-group-nav .menu-group-nav {
+    color: rgba(33, 37, 41, 0.3);
+  }
+  .sticky-menu-group-nav .menu-group-nav a {
+    border-radius: 15px
+  }
+}
+/*  _primary-sub-sub.scss:11 width<880 fix issue */
+@media only screen and (max-width: 880px) {
+.main-navigation li li:hover > ul, .main-navigation li li.focus > ul {
+    left: auto;
+  }
 }

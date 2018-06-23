@@ -62,6 +62,7 @@
                 echo "<pre> <p style='color: blue;'>Package Courses:    </p> ";
                 while ($myquery_course->have_posts()) {  $myquery_course->the_post();
                     // start template; =============================
+                print get_post_meta(get_the_ID(), 'course_qty', true);
                     $term_id=get_post_meta(get_the_ID(), 'course_name', true)['term_taxonomy_id'];
                     the_title('<p><a href="'.get_term_link((int)$term_id).'" target="_blank" rel="noopener">', '</a></p>');
                     

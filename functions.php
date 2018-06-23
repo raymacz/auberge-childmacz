@@ -74,7 +74,6 @@ function rbtm_disable_parent_styles() {
 }
  // add_action('wp_enqueue_scripts', 'rbtm_disable_parent_styles', 101);
 
-
 // check filter of styles
 add_filter('wmhook_wm_register_assets_register_styles', function($styles) {
    $reg_styles = array(
@@ -95,9 +94,6 @@ add_filter('wmhook_wm_enqueue_assets_enqueue_styles', function($enqueue) {
 //    var_dump($enqueue);
    return $enqueue;
 }, 10, 1);
-
-
-
 
 // check filter of scripts
 add_filter('wmhook_wm_register_assets_register_scripts', function($scripts) {
@@ -152,24 +148,9 @@ add_action('after_setup_theme', function() {
      remove_action( 'tha_header_top', 'wm_menu_social', 130);
   //   echo "TESTER wm_remove_menu_social"; // this prints but remove action doesnt work.
  }
-
- //any of these hooks can be used & is loaded in order
 add_action( 'after_setup_theme', 'wm_remove_menu_social', 0); //#1
-//add_action( 'init', 'wm_remove_menu_social');  //#2
-//add_action( 'wp_head', 'wm_remove_menu_social'); //#3
-
-
-// =================
-//
-// add_action( 'wp_footer', function() {
-//   global $wp_filter;
-//   echo "<pre>" . var_dump( $wp_filter['after_setup_theme'] ) . "</pre>";
-//   // echo "<pre>" . print_r($wp_filter, true) . "</pre>";
-// });
-
 
 function be_event_query( $query ) {
-
 	if( $query->is_main_query() && !$query->is_feed() && !is_admin() && $query->is_post_type_archive( 'event' ) ) {
 		$meta_query = array(
 			array(
@@ -187,28 +168,6 @@ function be_event_query( $query ) {
 }
 //add_action( 'pre_get_posts', 'be_event_query' );
 
-
-
-function RBTM_func_query_cpt( $query ) {
-
-  if ( !is_admin() && $query->is_main_query() && $query->is_post_type_archive('course_package') && !$query->is_feed() ) {
-
-     $query->set( 'post_type', array( 'post', 'my_custom_post_type') );
-     return $query;
-
-   }
- //or include in category
-  if ( is_category('category-slug') && $query->is_main_query() ) {
-
-     $query->set( 'post_type', 'my_custom_post_type' );
-     return $query;
-
-   }
-}
-//add_action( 'pre_get_posts', 'RBTM_func_query_cpt' );
-
-
-
 // Frontpage Template
 
 add_action('wmhook_content_primary_before', function(){
@@ -225,7 +184,7 @@ endif;
 
 add_action('wmhook_content_primary_before', function(){
 if ( is_front_page() && is_page() ) :
-   get_template_part( 'template-parts/content', 'gal' );
+   get_template_part( 'template-parts/content', 'gal_food' );
 endif;
 }, 10, 1);
 
@@ -243,7 +202,7 @@ endif;
 
 add_action('wmhook_content_primary_after', function(){
 if ( is_front_page() && is_page() ) :
-   get_template_part( 'template-parts/content', 'gal' );
+   get_template_part( 'template-parts/content', 'gal_place' );
 endif;
 }, 10, 1);
 
@@ -266,11 +225,13 @@ add_action('wmhook_content_primary_after', function(){
   endif;
 }, 10, 1);
 
-add_action('shutdown', function(){
+function RBTM_package_cater() {
   if ( is_front_page() && is_page() ) :
     get_template_part( 'template-parts/content', 'query_sbox' );
   endif;
-}, 10, 1);
+}
+
+// add_action('shutdown', 'RBTM_package_cater', 10, 1);
 
 // add post type 'course_package' to be able to display post meta in content
 function RBTM_change_post_meta($mymeta) {
@@ -280,7 +241,6 @@ function RBTM_change_post_meta($mymeta) {
 }
 
 add_filter('wmhook_wm_post_meta_top_post_type', 'RBTM_change_post_meta',20, 1);
-
 
 // add meta price for post type 'course_package'
 function RBTM_change_content_title($mytitle) {
@@ -292,18 +252,83 @@ function RBTM_change_content_title($mytitle) {
         $mystr .= '</a>';
         $mytitle['title'] = $mystr;
 //        $mytitle['title'] = '<a href="http://site1.net/item/classic-burger/"><span class="food-menu-item-title">CLASSIC BURGER</span><span class="food-menu-item-price"> $5</span></a>';
-    } 
+    }
 //         var_dump($mytitle);
     return $mytitle;
 }
 
 add_filter('wmhook_wm_post_title_args', 'RBTM_change_content_title',10, 1);
 
-
-// add style class for type 'course_package' to fix display in content
+// add style class for type 'course_package' to fix display in content title & page title
 function RBTM_wm_post_title_defaults($mytitle) {
+  if ( is_main_query() && !is_feed() && is_post_type_viewable('course_package') )
     $mytitle['class_container'] .= ' food-menu-item-header';
+
+  if (is_main_query() && !is_feed() && is_page('menu') && get_the_id()=='1877' )
+       $mytitle = '';
     return $mytitle;
 }
 
 add_filter('wmhook_wm_post_title_defaults', 'RBTM_wm_post_title_defaults', 10, 1 );
+
+// remove page "menu" body content
+add_filter('the_content', function($mycontent) {
+    if (is_main_query() && !is_feed() && is_page('menu'))
+        $mycontent = '';
+    return $mycontent;
+}, 10, 1);
+
+// add body class
+function RBTM_body_classes($classes) {
+  // Adds a class whether a sidebar is in uses
+    if (is_active_sidebar( 'sidebar') || is_active_sidebar('frontpage') || is_active_sidebar('footer')) {
+      $classes[] = 'has-sidebar';
+    } else {
+      $classes[] = 'no-sidebar';
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'RBTM_body_classes', 10, 1 );
+
+function add_specific_menu_location_atts( $atts, $item, $args, $depth ) {
+//  var_dump( basename(get_permalink()));
+    if( $args->theme_location == 'primary' ) {
+      // add the desired attributes:
+      $atts['class'] = 'menu-link-class';
+    }
+      // change menu links when not in frontpage for smooth scrolling
+    if(!is_front_page() && $args->theme_location == 'primary')   {
+      switch ($atts['href']) {
+          case '#top':
+              $atts['href'] = get_home_url();
+              break;
+          case '#services':
+              $atts['href'] = get_home_url().'#services';
+              break;
+          case '#about-menu':
+              $atts['href'] = get_home_url().'#about-menu';
+              break;
+          case '#about-chef':
+              $atts['href'] = get_home_url().'#about-chef';
+              break;
+          case '#about-ambi':
+              $atts['href'] = get_home_url().'#about-ambi';
+              break;
+          case '#cont-testi':
+              $atts['href'] = get_home_url().'#cont-testi';
+              break;
+          case '#cont-loc':
+              $atts['href'] = get_home_url().'#cont-loc';
+              break;
+          case '#mywork':
+              $atts['href'] = get_home_url().'#mywork';
+              break;
+          default:
+              break;
+      }
+
+
+    }
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'add_specific_menu_location_atts', 10, 4 );

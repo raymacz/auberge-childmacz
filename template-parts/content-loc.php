@@ -1,4 +1,4 @@
-<div class="container-fluid wrap-location text-center">
+<div id="cont-loc" class="container-fluid wrap-location text-center">
   <div class="container">
     <section class="logos">
       <div class="row">

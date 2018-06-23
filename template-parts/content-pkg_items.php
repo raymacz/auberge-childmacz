@@ -6,7 +6,7 @@
  * post has some content.
  *
  * @package    Auberge
- * @copyright  WebMan Design, Oliver Juhas
+ * @author     Raymacz
  *
  * @since    1.0
  * @version  2.0
@@ -14,32 +14,11 @@
 
 
 
-
-
-/**
- * Requirements check
- */
-
-	if ( ! current_theme_supports( 'nova_menu_item') ) {
-		return;
-	}
-
-
-/**
- * Helper variables
- */
-
-	$pagination_suffix = wm_paginated_suffix( 'small', 'nova_menu_item' );
-
-	$wrapper_tag = ( is_single( get_the_ID() ) ) ? ( 'div' ) : ( 'aside' );
-
-
-
 ?>
 
 <?php do_action( 'tha_entry_before' ); ?>
 
-<<?php echo tag_escape( $wrapper_tag ); ?> id="post-<?php the_ID(); ?>" <?php post_class(); echo apply_filters( 'wmhook_entry_container_atts', '' ); ?>>
+<aside id="post-<?php the_ID(); ?>" <?php post_class('type-nova_menu_item'); ?> <?php echo apply_filters( 'wmhook_entry_container_atts', '' ); ?>>
 
 	<?php echo do_action( 'tha_entry_top' );  ?>
 
@@ -66,6 +45,6 @@
 
 	<?php do_action( 'tha_entry_bottom' ); ?>
 
-</<?php echo tag_escape( $wrapper_tag ); ?>>
+</aside>
 
 <?php do_action( 'tha_entry_after' ); ?>

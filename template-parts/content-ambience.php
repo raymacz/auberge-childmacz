@@ -1,4 +1,4 @@
-<section id="about-menu" style="background-image: url('<?php print get_template_directory_uri(); ?>-child/backup-files/img/bg/resto2.jpg');background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
+<section id="about-ambi" style="background-image: url('<?php print get_template_directory_uri(); ?>-child/backup-files/img/bg/resto2.jpg');background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
   <div class="container-fluid wrap-menu">
     <div class="container">
       <div class="row justify-content-end">

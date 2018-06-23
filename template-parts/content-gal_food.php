@@ -1,5 +1,5 @@
 
-<div id="galtest" class="container-fluid">
+<div id="galfood" class="gall container-fluid">
 <?php
 $my_postid = 2008;
 

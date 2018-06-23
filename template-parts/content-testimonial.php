@@ -1,4 +1,4 @@
-<div class="container-fluid wrap-testi">
+<div id="cont-testi" class="container-fluid wrap-testi">
   <div class="row">
     <blockquote class="col-lg-6 col-xl-3 bgtesti" style="background: url('<?php bloginfo('template_directory'); ?>-child/backup-files/img/testimonial/testimonial-janeh.jpg') no-repeat center center; background-size: cover;">
       <div class="quote">

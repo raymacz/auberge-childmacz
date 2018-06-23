@@ -29,7 +29,6 @@ $mytax_obj= get_queried_object();
                         $archtitle .= '</h1>';        
                         print $archtitle;
 			the_archive_description( '<div class="taxonomy-description">', '</div>' );
-echo "rbtm_copy";
 			?>
 		</header>
 
