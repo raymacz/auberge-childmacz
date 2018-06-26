@@ -10,7 +10,11 @@
               <h3 class="p-title" style="text-align: center;">Custom Queries</h3>
             </div>
             <div class="wpb-wrapper">
+
+
+
  <?php
+
 //    if (is_front_page() && is_main_query() && is_archive() && is_tax('menu_course') && is_post_type_archive('course_package') {
     if (is_front_page() && is_main_query()) {
         $args = array(

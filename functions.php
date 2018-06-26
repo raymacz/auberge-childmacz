@@ -225,12 +225,18 @@ add_action('wmhook_content_primary_after', function(){
   endif;
 }, 10, 1);
 
+function RBTM_testme() {
+  if ( is_front_page() ) :
+    get_template_part( 'template-parts/content', 'test' );
+  endif;
+}
+ add_action('shutdown', 'RBTM_testme', 10, 1);
+
 function RBTM_package_cater() {
-  if ( is_front_page() && is_page() ) :
+  if ( is_front_page()) :
     get_template_part( 'template-parts/content', 'query_sbox' );
   endif;
 }
-
 // add_action('shutdown', 'RBTM_package_cater', 10, 1);
 
 // add post type 'course_package' to be able to display post meta in content
@@ -290,8 +296,8 @@ function RBTM_body_classes($classes) {
 }
 add_filter( 'body_class', 'RBTM_body_classes', 10, 1 );
 
+// add class for each nav link & change href when pages switch from frontpage to any
 function add_specific_menu_location_atts( $atts, $item, $args, $depth ) {
-//  var_dump( basename(get_permalink()));
     if( $args->theme_location == 'primary' ) {
       // add the desired attributes:
       $atts['class'] = 'menu-link-class';
@@ -327,8 +333,51 @@ function add_specific_menu_location_atts( $atts, $item, $args, $depth ) {
               break;
       }
 
-
     }
     return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'add_specific_menu_location_atts', 10, 4 );
+
+// Enable shortcodes in text widgets
+add_filter('widget_text','do_shortcode');
+
+
+function RBTM_my_func(){
+  remove_action('pre_get_posts','wm_jetpack_food_menu_section_query', 10);
+  remove_action('pre_get_posts','Featured_Content::pre_get_posts', 10);
+  remove_action('init','Featured_Content::init', 30);
+  // remove_action('init','WM_Nova_Restaurant::init', 10);
+  // remove_action('parse_query','WM_Nova_Restaurant', 10); // to
+  // remove_action('parse_query','WM_Nova_Restaurant–>sort_menu_item_queries_by_menu_order', 10); // to
+    // remove_action('parse_query',array("WM_Nova_Restaurant", "sort_menu_item_queries_by_menu_order"), 1);
+    // remove_action('parse_query',array("WM_Nova_Restaurant", "start_menu_item_loop"), 1);
+    // remove_action('loop_start',array("WM_Nova_Restaurant", "start_menu_item_loop"), 10);
+    // remove_action( 'init', array( 'WM_Nova_Restaurant', 'init' ), 10 );
+    remove_action( 'wmhook_loop_content_type', 'wm_jetpack_food_menu_loop_content_type', 10 );
+    remove_action( 'wmhook_loop_food_menu_postslist_before', 'wm_jetpack_food_menu_loop_section_display_menu_page', 10 );
+    remove_action( 'after_setup_theme', 'wm_jetpack', 30 );
+    // remove_action('parse_query',array("Nova_Restaurant", "sort_menu_item_queries_by_menu_order"), 10);
+
+global $WM_Nova_Restaurant;
+global $wp_filter;
+remove_action('parse_query','WM_Nova_Restaurant', 80);
+remove_action('parse_query', 'WM_Nova_Restaurant->sort_menu_item_queries_by_menu_order', 80);
+remove_action('parse_query',array("WM_Nova_Restaurant", "sort_menu_item_queries_by_menu_order"), 80);
+remove_action('parse_query', array("WM_Nova_Restaurant", "sort_menu_item_queries_by_menu_order"), 80);
+remove_action('parse_query',array($WM_Nova_Restaurant, "sort_menu_item_queries_by_menu_order"), 80);
+remove_action('Nova_Restaurant::init()', 'sort_menu_item_queries_by_menu_order');
+remove_action('parse_query', array("Nova_Restaurant::init()", "sort_menu_item_queries_by_menu_order"));
+$x=0;
+   //do_hard_unregister_object_callback( 'parse_query', 10, 'WM_Nova_Restaurant');
+}
+ add_action('init', 'RBTM_my_func', 80);
+
+function rbtm_preget_remove() {
+
+remove_action('pre_get_posts','wm_posts_query_ignore_sticky_posts', 10);
+remove_action('pre_get_posts','wm_jetpack_food_menu_section_query', 10);
+// remove_action('pre_get_posts',array('Featured_Content', 'pre_get_posts'), 10);
+remove_action('init','Featured_Content::init', 30);
+remove_action('init','WM_Nova_Restaurant::init', 80);
+}
+add_action( 'init', 'rbtm_preget_remove' );
