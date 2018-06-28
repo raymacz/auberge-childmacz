@@ -30,7 +30,4 @@ error_reporting(E_ALL); //during developement, add this to help in making WP plu
 //https://codex.wordpress.org/Class_Reference/WP_Query#Taxonomy_Parameters
 
 
-
-
-
 ?>

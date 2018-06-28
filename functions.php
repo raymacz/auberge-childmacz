@@ -168,77 +168,6 @@ function be_event_query( $query ) {
 }
 //add_action( 'pre_get_posts', 'be_event_query' );
 
-// Frontpage Template
-
-add_action('wmhook_content_primary_before', function(){
-if ( is_front_page() && is_page() ) :
-   get_template_part( 'template-parts/content', 'services' );
-endif;
-}, 10, 1);
-
-add_action('wmhook_content_primary_before', function(){
-if ( is_front_page() && is_page() ) :
-   get_template_part( 'template-parts/content', 'menu' );
-endif;
-}, 10, 1);
-
-add_action('wmhook_content_primary_before', function(){
-if ( is_front_page() && is_page() ) :
-   get_template_part( 'template-parts/content', 'gal_food' );
-endif;
-}, 10, 1);
-
-add_action('wmhook_content_primary_before', function(){
-if ( is_front_page() && is_page() ) :
-   get_template_part( 'template-parts/content', 'chef' );
-endif;
-}, 10, 1);
-
-add_action('wmhook_content_primary_after', function(){
-if ( is_front_page() && is_page() ) :
-   get_template_part( 'template-parts/content', 'ambience' );
-endif;
-}, 10, 1);
-
-add_action('wmhook_content_primary_after', function(){
-if ( is_front_page() && is_page() ) :
-   get_template_part( 'template-parts/content', 'gal_place' );
-endif;
-}, 10, 1);
-
-add_action('wmhook_content_primary_after', function(){
-  if ( is_front_page() && is_page() ) :
-    get_template_part( 'template-parts/content', 'testimonial' );
-  endif;
-}, 10, 1);
-
-add_action('wmhook_content_primary_after', function(){
-  if ( is_front_page() && is_page() ) :
-    get_template_part( 'template-parts/content', 'loc' );
-  endif;
-}, 10, 1);
-
-
-add_action('wmhook_content_primary_after', function(){
-  if ( is_front_page() && is_page() ) :
-    get_template_part( 'template-parts/content', 'work' );
-  endif;
-}, 10, 1);
-
-function RBTM_testme() {
-  if ( is_front_page() ) :
-    get_template_part( 'template-parts/content', 'test' );
-  endif;
-}
- add_action('shutdown', 'RBTM_testme', 10, 1);
-
-function RBTM_package_cater() {
-  if ( is_front_page()) :
-    get_template_part( 'template-parts/content', 'query_sbox' );
-  endif;
-}
-// add_action('shutdown', 'RBTM_package_cater', 10, 1);
-
 // add post type 'course_package' to be able to display post meta in content
 function RBTM_change_post_meta($mymeta) {
     // var_dump($mymeta);
@@ -265,119 +194,83 @@ function RBTM_change_content_title($mytitle) {
 
 add_filter('wmhook_wm_post_title_args', 'RBTM_change_content_title',10, 1);
 
-// add style class for type 'course_package' to fix display in content title & page title
-function RBTM_wm_post_title_defaults($mytitle) {
-  if ( is_main_query() && !is_feed() && is_post_type_viewable('course_package') )
-    $mytitle['class_container'] .= ' food-menu-item-header';
-
-  if (is_main_query() && !is_feed() && is_page('menu') && get_the_id()=='1877' )
-       $mytitle = '';
-    return $mytitle;
-}
-
-add_filter('wmhook_wm_post_title_defaults', 'RBTM_wm_post_title_defaults', 10, 1 );
-
-// remove page "menu" body content
-add_filter('the_content', function($mycontent) {
+function RBTM_hide_main_menu_content($mycontent) {
     if (is_main_query() && !is_feed() && is_page('menu'))
         $mycontent = '';
     return $mycontent;
-}, 10, 1);
-
-// add body class
-function RBTM_body_classes($classes) {
-  // Adds a class whether a sidebar is in uses
-    if (is_active_sidebar( 'sidebar') || is_active_sidebar('frontpage') || is_active_sidebar('footer')) {
-      $classes[] = 'has-sidebar';
-    } else {
-      $classes[] = 'no-sidebar';
-    }
-    return $classes;
 }
-add_filter( 'body_class', 'RBTM_body_classes', 10, 1 );
+// disable page "slug=menu" body content
+add_filter('the_content', 'RBTM_hide_main_menu_content', 10, 1);
 
-// add class for each nav link & change href when pages switch from frontpage to any
-function add_specific_menu_location_atts( $atts, $item, $args, $depth ) {
-    if( $args->theme_location == 'primary' ) {
-      // add the desired attributes:
-      $atts['class'] = 'menu-link-class';
-    }
-      // change menu links when not in frontpage for smooth scrolling
-    if(!is_front_page() && $args->theme_location == 'primary')   {
-      switch ($atts['href']) {
-          case '#top':
-              $atts['href'] = get_home_url();
-              break;
-          case '#services':
-              $atts['href'] = get_home_url().'#services';
-              break;
-          case '#about-menu':
-              $atts['href'] = get_home_url().'#about-menu';
-              break;
-          case '#about-chef':
-              $atts['href'] = get_home_url().'#about-chef';
-              break;
-          case '#about-ambi':
-              $atts['href'] = get_home_url().'#about-ambi';
-              break;
-          case '#cont-testi':
-              $atts['href'] = get_home_url().'#cont-testi';
-              break;
-          case '#cont-loc':
-              $atts['href'] = get_home_url().'#cont-loc';
-              break;
-          case '#mywork':
-              $atts['href'] = get_home_url().'#mywork';
-              break;
-          default:
-              break;
-      }
-
-    }
-    return $atts;
-}
-add_filter( 'nav_menu_link_attributes', 'add_specific_menu_location_atts', 10, 4 );
 
 // Enable shortcodes in text widgets
 add_filter('widget_text','do_shortcode');
 
+//show food tags in single content
 
-function RBTM_my_func(){
-  remove_action('pre_get_posts','wm_jetpack_food_menu_section_query', 10);
-  remove_action('pre_get_posts','Featured_Content::pre_get_posts', 10);
-  remove_action('init','Featured_Content::init', 30);
-  // remove_action('init','WM_Nova_Restaurant::init', 10);
-  // remove_action('parse_query','WM_Nova_Restaurant', 10); // to
-  // remove_action('parse_query','WM_Nova_Restaurant–>sort_menu_item_queries_by_menu_order', 10); // to
-    // remove_action('parse_query',array("WM_Nova_Restaurant", "sort_menu_item_queries_by_menu_order"), 1);
-    // remove_action('parse_query',array("WM_Nova_Restaurant", "start_menu_item_loop"), 1);
-    // remove_action('loop_start',array("WM_Nova_Restaurant", "start_menu_item_loop"), 10);
-    // remove_action( 'init', array( 'WM_Nova_Restaurant', 'init' ), 10 );
-    remove_action( 'wmhook_loop_content_type', 'wm_jetpack_food_menu_loop_content_type', 10 );
-    remove_action( 'wmhook_loop_food_menu_postslist_before', 'wm_jetpack_food_menu_loop_section_display_menu_page', 10 );
-    remove_action( 'after_setup_theme', 'wm_jetpack', 30 );
-    // remove_action('parse_query',array("Nova_Restaurant", "sort_menu_item_queries_by_menu_order"), 10);
-
-global $WM_Nova_Restaurant;
-global $wp_filter;
-remove_action('parse_query','WM_Nova_Restaurant', 80);
-remove_action('parse_query', 'WM_Nova_Restaurant->sort_menu_item_queries_by_menu_order', 80);
-remove_action('parse_query',array("WM_Nova_Restaurant", "sort_menu_item_queries_by_menu_order"), 80);
-remove_action('parse_query', array("WM_Nova_Restaurant", "sort_menu_item_queries_by_menu_order"), 80);
-remove_action('parse_query',array($WM_Nova_Restaurant, "sort_menu_item_queries_by_menu_order"), 80);
-remove_action('Nova_Restaurant::init()', 'sort_menu_item_queries_by_menu_order');
-remove_action('parse_query', array("Nova_Restaurant::init()", "sort_menu_item_queries_by_menu_order"));
-$x=0;
-   //do_hard_unregister_object_callback( 'parse_query', 10, 'WM_Nova_Restaurant');
+function RBTM_show_nova_menu_item_tag(){
+    if (is_single()  && get_post_type()=='nova_menu_item' )  {
+      echo '<footer class="entry-meta entry-meta-bottom">';
+//      the_terms(get_the_ID(), 'nova_menu_item_label','<span class="tags-links entry-meta-element" itemprop="keywords">',', ','</span>');
+      $a_terms=array_slice(get_the_terms(get_the_ID(), 'nova_menu_item_label'), 1, 10, false);
+      echo '<span class="tags-links entry-meta-element" itemprop="keywords">';
+      foreach ($a_terms as $trm) {
+           echo '<a href="'. esc_url(get_term_link($trm->term_id)).'">'.$trm->name.'</a>';
+           if($trm != end($a_terms)) echo ',';
+      }
+      echo '</span></footer>';
+    }
 }
- add_action('init', 'RBTM_my_func', 80);
+add_action('tha_entry_bottom','RBTM_show_nova_menu_item_tag',10,1);
 
-function rbtm_preget_remove() {
+// filter the nova_menu_item  page "slug=menu"
 
-remove_action('pre_get_posts','wm_posts_query_ignore_sticky_posts', 10);
-remove_action('pre_get_posts','wm_jetpack_food_menu_section_query', 10);
-// remove_action('pre_get_posts',array('Featured_Content', 'pre_get_posts'), 10);
-remove_action('init','Featured_Content::init', 30);
-remove_action('init','WM_Nova_Restaurant::init', 80);
+function RBTM_child_theme_food_menu_query( $query ) {
+	if (
+		class_exists( 'Nova_Restaurant' )
+		&& ( isset( $query->query_vars['post_type'] ) && Nova_Restaurant::MENU_ITEM_POST_TYPE == $query->query_vars['post_type'] )
+	) {
+		$query->set( 'orderby', 'title' );
+    $query->set('tax_query', array(
+      array(
+        'taxonomy'=>'nova_menu',
+        'field'=> 'term_id',
+        'terms'=>array(264),
+        'include_children'=>true,
+        'operator'=>'NOT IN',
+      )
+    ));
+	}
 }
-add_action( 'init', 'rbtm_preget_remove' );
+add_action( 'pre_get_posts', 'RBTM_child_theme_food_menu_query' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Functions which enhance the theme for templates in general by hooking into WordPress.
+ */
+require_once(get_stylesheet_directory(). '/includes/myfunc/tpl-func.php');
+
+/**
+ * Functions which enhance the theme & targets specific templates by hooking into Wordpress.
+ */
+require_once(get_stylesheet_directory() . '/includes/myfunc/specific-tpl-func.php');
