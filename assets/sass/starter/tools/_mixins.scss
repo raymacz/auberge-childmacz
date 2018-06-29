@@ -96,7 +96,7 @@
 // Output heading tags styles
 //
 // @param  num  $multiplier    Alter heading maps values
-// @param  bool $global_styles Whether to output the heading tags global styles (these don't according the $multiplier)
+// @param  bool $global_styles Whether to output the heading tags global styles (these dont according the $multiplier) //
 //
 @mixin h_tags( $multiplier: 1, $global_styles: false ) {
 
@@ -240,5 +240,4 @@
 		#{ $property }: $value_ltr;
 
 	}
-
-} // /rtl_property
+}

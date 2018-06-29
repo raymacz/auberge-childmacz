@@ -11,8 +11,17 @@
 //
 
 
-
-
+// rbtm added scss files for Auberge-child
+// This is the root SASS file for calling the subfiles
+// @import '../mycustom/setup/myvariables';  // 'starter/starter';
+// @import '../mycustom/tools/mymixins';  //  'starter/starter';
+// @import 'mycustom/frontpage/main';      // all files
+// @import 'mycustom/events-page/events';
+// @import 'mycustom/reservation-page/reservation';
+// @import '../../mycustom/main-modify/_custom-menu';   // assets\sass\main\menu\_menu.scss
+// @import '../../mycustom/main-modify/_custom-sidebar'; // assets\sass\main\sidebar\_sidebar.scss
+// @import '../../mycustom/main-modify/_custom-headings'; // assets\sass\main\headings\_headings.scss
+// @import '../../mycustom/main-modify/_custom_content'; // assets\sass\main\content\_content.scss
 
 // Imports
 
@@ -21,3 +30,9 @@
 	@import 'starter/starter';
 
 	@import 'main/main';
+
+	@import 'mycustom/frontpage/main';
+
+	@import 'mycustom/events-page/events';
+
+	@import 'mycustom/reservation-page/reservation';

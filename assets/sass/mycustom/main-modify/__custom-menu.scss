@@ -1,0 +1,24 @@
+
+/* MENU navigation */
+
+.menu-group-nav a {
+  background-color: darkgray;
+  color: black;
+}
+
+
+/** submenu menu **/
+@media only screen and (min-width: 80em) {
+  .sticky-menu-group-nav .menu-group-nav {
+    color: rgba(33, 37, 41, 0.3);
+  }
+  .sticky-menu-group-nav .menu-group-nav a {
+    border-radius: 15px
+  }
+}
+/*  _primary-sub-sub.scss:11 width<880 fix issue */
+@media only screen and (max-width: 880px) {
+.main-navigation li li:hover > ul, .main-navigation li li.focus > ul {
+    left: auto;
+  }
+}

@@ -1,0 +1,33 @@
+
+/** events **/
+
+/* th.simcal-nav.simcal-prev-wrapper, th.simcal-nav.simcal-current, th.simcal-nav.simcal-next-wrapper {
+    background-color: linen;
+} */
+.simcal-calendar-head tr:nth-child(1) {
+    background-color: #7d6852;
+}
+.simcal-calendar-head tr:nth-child(2) {
+    background-color: #fbf5ef;
+}
+th.simcal-current h3 {
+    color: white;
+}
+.simcal-default-calendar-light .simcal-nav-button {
+    color: white;
+}
+.simcal-default-calendar-light .simcal-nav-button:disabled, .simcal-default-calendar-light .simcal-nav-button:disabled:hover {
+    color: #7d6853!important;
+}
+.simcal-next-wrapper {
+  border-radius: 0 10px 10px 0px;
+}
+.simcal-prev-wrapper {
+  border-radius: 10px 0 0px 10px;
+}
+.simcal-default-calendar-light .simcal-nav-button:focus, .simcal-default-calendar-light .simcal-nav-button:hover {
+    color: white;
+}
+th.simcal-nav.simcal-current h3 {
+    font-family: Arial, sans-serif;
+}

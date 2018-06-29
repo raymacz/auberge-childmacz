@@ -1,0 +1,76 @@
+
+/** ABOUT CHEF TPL **/
+section#about-chef {
+    background-color: $color_front-lbrwn;
+    color: #fff;
+    padding-top: 41px;
+    padding-bottom: 60px;
+    h3 {
+        color: #fff;
+    }
+}
+
+
+div.photo-wrap {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+}
+
+.photo-wrap img {
+  border-radius: 2%;
+  height: 350px;
+  display: block;
+  margin: auto;
+}
+.block-tpl.chefs {
+  font-size: 18px;
+  font-family: sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.block-tpl.chefs p, .block-tpl.menus p {
+    margin: 0px 10px 10px 15px;
+}
+.p-title {
+  position: relative;
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  margin-bottom: 50px;
+}
+.b-title-white .p-title {
+  color: white;
+}
+
+.p-title::after {
+  position: absolute;
+  left: calc(50% - 100px);
+  margin: 1px auto;
+  bottom: 0;
+  width: 30%;
+  height: 3px;
+  background: $color_front-gold;
+  content: "---";
+  color: $color_front-gold;
+  -webkit-transform: translateY(-50%, -10%);
+    -moz-transform: translateY(-50%, -10%);
+    -ms-transform: translateY(-50%, -10%);
+    transform: translateY(-50%, -10px);
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+     vertical-align: middle;
+     /* align-items: center: */
+   }
+   section.logos .p-title::after {
+      left: calc(50% - 100px);
+      width: 200px;
+   }
+   section.logos h3, section.mail-subscription h3, section.careers h3 {
+     color: black;
+   }
+
+section.mail-subscription {
+  margin-bottom: 40px;
+}

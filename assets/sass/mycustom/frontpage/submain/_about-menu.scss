@@ -1,0 +1,33 @@
+
+.blk-info {
+    padding: 20px 15px;
+}
+.block-tpl.menus {
+  background-color: $color_front-drkbrwn;
+  color: white;
+  text-rendering: optimizeLegibility;
+  padding: 20px 10px;
+}
+div.btn-wrap {
+ position: relative;
+ display: block;
+ width: 100%;
+}
+.btn-label {
+   padding: 10px 0px 20px 0px;
+}
+p.phone-icon {
+   width: 100%;
+}
+p.phone-icon a {
+ font-size: 1.2em;
+ margin: 0 auto;
+ color: $color_front-gold;
+ padding-right: 20px;
+}
+.btn-wrap a, .btn-wrap button.btn {
+   color: $color_front-drkbrwn;
+   background-color: $color_front-gold;
+   font-weight: 1000;
+   border-color: $color_front-gold;
+}

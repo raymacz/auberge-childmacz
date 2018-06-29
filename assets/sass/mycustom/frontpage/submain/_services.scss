@@ -1,0 +1,33 @@
+/** SERVICES **/
+
+.wrap-location,
+.wrap-menu,
+.wrap-testi,
+section#services {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+.wrap-location {
+  margin-bottom: 60px;
+}
+
+.wrap-testi {
+  padding-top: 20px;
+}
+
+.fa-stack-2x {
+  color: hsl(45, 100%, 51%) !important;
+}
+
+section#services {
+  .p-title::after {
+    left: calc(50% - 100px);
+    width: 200px;
+  }
+
+  span.fa-stack.fa-4x {
+    margin-bottom: 20px;
+  }
+}

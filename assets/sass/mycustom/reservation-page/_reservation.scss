@@ -1,0 +1,26 @@
+
+/** reservation date picker **/
+#rtb-date_root .picker__nav--next, #rtb-date_root .picker__nav--prev {
+    min-height: 1em !important;
+}
+th.picker__weekday {
+    background-color: $color_front-lbrwn-a;
+    color: white;
+}
+table#rtb-date_table {
+    border-color: #ba9077
+}
+
+.picker__table thead tr {
+      border-color: $color_front-lbrwn-a;
+      color: white;
+}
+.picker__nav--next:after, .picker__nav--prev:before {
+  border-right: .75em solid $color_front-lbrwn-a !important;
+}
+.picker__nav--next:before {
+    border-left: .75em solid $color_front-lbrwn-a !important;
+}
+.picker--focused .picker__day--selected, .picker__day--selected, .picker__day--selected:hover {
+    background: #ffc105 !important;
+}

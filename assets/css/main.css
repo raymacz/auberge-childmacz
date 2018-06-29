@@ -2745,6 +2745,21 @@ h1, h2, h3,
 	letter-spacing: .1em;
 }
 
+/* MENU navigation */
+.menu-group-nav a {
+	background-color: darkgray;
+	color: black;
+}
+
+/* carousel tagline */
+.site-banner-header a {
+	font-size: 0.4em;
+	opacity: .5;
+	background-color: transparent;
+	box-shadow: none;
+	line-height: 0.5;
+}
+
 /* FILE: main/header/_header.scss */
 .site-header {
 	position: relative;
@@ -3514,6 +3529,29 @@ body:not(.sticky-header) .site-header .back-to-top {
 	display: none;
 }
 
+/* MENU navigation */
+.menu-group-nav a {
+	background-color: darkgray;
+	color: black;
+}
+
+/** submenu menu **/
+@media only screen and (min-width: 80em) {
+	.sticky-menu-group-nav .menu-group-nav {
+		color: rgba(33, 37, 41, 0.3);
+	}
+	.sticky-menu-group-nav .menu-group-nav a {
+		border-radius: 15px;
+	}
+}
+
+/*  _primary-sub-sub.scss:11 width<880 fix issue */
+@media only screen and (max-width: 880px) {
+	.main-navigation li li:hover > ul, .main-navigation li li.focus > ul {
+		left: auto;
+	}
+}
+
 /* FILE: main/content/_content.scss */
 /* FILE: main/content/__wp.scss */
 .wp-caption .wp-caption-text {
@@ -4091,6 +4129,10 @@ a img:hover {
 	content: '\f411';
 }
 
+#top.home #content {
+	padding-bottom: 0px;
+}
+
 /* FILE: main/footer/_footer.scss */
 .site-footer {
 	padding: 6% 0;
@@ -4268,6 +4310,11 @@ a img:hover {
 }
 
 /* FILE: main/sidebar/__footer.scss */
+/* carousel wrapper rbtm */
+#top.home #page .front-page-widgets-wrapper {
+	margin-bottom: 0;
+}
+
 /* FILE: main/plugins/_plugins.scss */
 /* FILE: main/plugins/__beaver-builder.scss */
 .fl-builder.page-template .site-content {
@@ -4783,6 +4830,338 @@ ul li.lang-item a {
 	padding: 1.62em 1.62em 0;
 	border-width: 2px;
 	border-style: solid;
+}
+
+/** SERVICES **/
+.wrap-location,
+.wrap-menu,
+.wrap-testi,
+section#services {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	margin-bottom: 20px;
+}
+
+.wrap-location {
+	margin-bottom: 60px;
+}
+
+.wrap-testi {
+	padding-top: 20px;
+}
+
+.fa-stack-2x {
+	color: #ffc105 !important;
+}
+
+section#services .p-title::after {
+	left: calc(50% - 100px);
+	width: 200px;
+}
+
+section#services span.fa-stack.fa-4x {
+	margin-bottom: 20px;
+}
+
+.blk-info {
+	padding: 20px 15px;
+}
+
+.block-tpl.menus {
+	background-color: rgba(26, 18, 0, 0.8);
+	color: white;
+	text-rendering: optimizeLegibility;
+	padding: 20px 10px;
+}
+
+div.btn-wrap {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.btn-label {
+	padding: 10px 0px 20px 0px;
+}
+
+p.phone-icon {
+	width: 100%;
+}
+
+p.phone-icon a {
+	font-size: 1.2em;
+	margin: 0 auto;
+	color: #ffc105;
+	padding-right: 20px;
+}
+
+.btn-wrap a, .btn-wrap button.btn {
+	color: rgba(26, 18, 0, 0.8);
+	background-color: #ffc105;
+	font-weight: 1000;
+	border-color: #ffc105;
+}
+
+/** ABOUT CHEF TPL **/
+section#about-chef {
+	background-color: rgba(104, 92, 59, 0.83);
+	color: #fff;
+	padding-top: 41px;
+	padding-bottom: 60px;
+}
+
+section#about-chef h3 {
+	color: #fff;
+}
+
+div.photo-wrap {
+	-ms-flex: 0 1 auto;
+	    flex: 0 1 auto;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	    flex-direction: column;
+	padding: 20px 0px;
+}
+
+.photo-wrap img {
+	border-radius: 2%;
+	height: 350px;
+	display: block;
+	margin: auto;
+}
+
+.block-tpl.chefs {
+	font-size: 18px;
+	font-family: sans-serif;
+	text-rendering: optimizeLegibility;
+}
+
+.block-tpl.chefs p, .block-tpl.menus p {
+	margin: 0px 10px 10px 15px;
+}
+
+.p-title {
+	position: relative;
+	text-transform: uppercase;
+	padding-bottom: 12px;
+	margin-bottom: 50px;
+}
+
+.b-title-white .p-title {
+	color: white;
+}
+
+.p-title::after {
+	position: absolute;
+	left: calc(50% - 100px);
+	margin: 1px auto;
+	bottom: 0;
+	width: 30%;
+	height: 3px;
+	background: #ffc105;
+	content: "---";
+	color: #ffc105;
+	transform: translateY(-50%, -10px);
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: row;
+	    flex-direction: row;
+	-ms-flex-pack: center;
+	    justify-content: center;
+	vertical-align: middle;
+	/* align-items: center: */
+}
+
+section.logos .p-title::after {
+	left: calc(50% - 100px);
+	width: 200px;
+}
+
+section.logos h3, section.mail-subscription h3, section.careers h3 {
+	color: black;
+}
+
+section.mail-subscription {
+	margin-bottom: 40px;
+}
+
+/* testimonials */
+blockquote.bgtesti {
+	margin: 0;
+	padding: 0;
+	min-height: 500px;
+	position: relative;
+	font-size: .9em;
+}
+
+blockquote.bgtesti:after, blockquote.bgtesti:before {
+	content: none;
+}
+
+blockquote.bgtesti .quote {
+	background-color: rgba(26, 18, 0, 0.7);
+	padding: 20px 5%;
+	position: absolute;
+	bottom: 0;
+	width: 75%;
+	border-radius: 0 50px 0 0;
+	color: white;
+}
+
+blockquote.bgtesti .quote:hover {
+	background-color: rgba(26, 18, 0, 0.9);
+}
+
+blockquote.bgtesti span.intro, blockquote.bgtesti span.client {
+	font-weight: 700;
+	box-sizing: border-box;
+	line-height: .8;
+}
+
+blockquote.bgtesti span.more,
+span.client {
+	font-size: 0;
+	line-height: 0;
+	padding-top: 20px;
+}
+
+.quote:hover .more, .quote:hover .client {
+	display: block;
+	transition: all .5s ease-in;
+	font-size: 1em;
+	line-height: 1.2;
+}
+
+/* location, mailing & career */
+div#mywork {
+	background-color: rgba(104, 92, 59, 0.83);
+	padding: 80px 15px 100px 15px;
+	color: #fff;
+}
+
+.mail-career h3.p-title {
+	color: #fff;
+}
+
+/* .site-branding {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 auto;
+  min-height: 65px;
+  justify-content: center;
+  text-align:center;
+} */
+/* modals */
+.modal-header {
+	background-color: #5a5c51;
+}
+
+.modal-title {
+	color: white;
+}
+
+.modal .modal-body {
+	color: black;
+}
+
+label input.form-control {
+	display: inline;
+}
+
+.modal-body .mc4wp-notice, .modal-body .mc4wp-error {
+	color: red;
+}
+
+/* gallery ambience */
+div.ngg-galleryoverview {
+	display: -ms-flexbox !important;
+	display: flex !important;
+	-ms-flex-direction: row;
+	    flex-direction: row;
+	-ms-flex: 0 1 auto;
+	    flex: 0 1 auto;
+	-ms-flex-pack: center;
+	    justify-content: center;
+}
+
+.ngg-gallery-thumbnail-box {
+	margin: 0 auto;
+}
+
+div#galfood {
+	padding-bottom: 20px;
+}
+
+/** events **/
+/* th.simcal-nav.simcal-prev-wrapper, th.simcal-nav.simcal-current, th.simcal-nav.simcal-next-wrapper {
+    background-color: linen;
+} */
+.simcal-calendar-head tr:nth-child(1) {
+	background-color: #7d6852;
+}
+
+.simcal-calendar-head tr:nth-child(2) {
+	background-color: #fbf5ef;
+}
+
+th.simcal-current h3 {
+	color: white;
+}
+
+.simcal-default-calendar-light .simcal-nav-button {
+	color: white;
+}
+
+.simcal-default-calendar-light .simcal-nav-button:disabled, .simcal-default-calendar-light .simcal-nav-button:disabled:hover {
+	color: #7d6853 !important;
+}
+
+.simcal-next-wrapper {
+	border-radius: 0 10px 10px 0px;
+}
+
+.simcal-prev-wrapper {
+	border-radius: 10px 0 0px 10px;
+}
+
+.simcal-default-calendar-light .simcal-nav-button:focus, .simcal-default-calendar-light .simcal-nav-button:hover {
+	color: white;
+}
+
+th.simcal-nav.simcal-current h3 {
+	font-family: Arial, sans-serif;
+}
+
+/** reservation date picker **/
+#rtb-date_root .picker__nav--next, #rtb-date_root .picker__nav--prev {
+	min-height: 1em !important;
+}
+
+th.picker__weekday {
+	background-color: #7d6954;
+	color: white;
+}
+
+table#rtb-date_table {
+	border-color: #ba9077;
+}
+
+.picker__table thead tr {
+	border-color: #7d6954;
+	color: white;
+}
+
+.picker__nav--next:after, .picker__nav--prev:before {
+	border-right: 0.75em solid #7d6954 !important;
+}
+
+.picker__nav--next:before {
+	border-left: 0.75em solid #7d6954 !important;
+}
+
+.picker--focused .picker__day--selected, .picker__day--selected, .picker__day--selected:hover {
+	background: #ffc105 !important;
 }
 
 /*# sourceMappingURL=../auberge-child/assets/sass/maps/main.css.map */

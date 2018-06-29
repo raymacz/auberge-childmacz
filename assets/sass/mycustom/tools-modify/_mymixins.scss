@@ -1,0 +1,39 @@
+// Background Cover Mixin
+@mixin background-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 20) * 1px;
+	font-size: $sizeValue * 1.25rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+@mixin font__script($size: false, $colour: false, $weight: false,  $lh: false) {
+		@if $size == false { font-size: 1rem; }
+    @if $colour == false { color: black; }
+    @if $weight == false { font-weight: 300; }
+    @if $lh == false { line-height: 1.5; }
+}

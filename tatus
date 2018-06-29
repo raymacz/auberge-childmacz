@@ -1,0 +1,41 @@
+[33mcommit e460d8e59dfadcbb9cb3900a96d1a88b58bd36a0[m[33m ([m[1;36mHEAD -> [m[1;32mbackend[m[33m, [m[1;31morigin/dev[m[33m, [m[1;31morigin/backend[m[33m, [m[1;32mdev[m[33m)[m
+Author: Raymond Maquiso <raymacz76@gmail.com>
+Date:   Thu Jun 28 13:38:09 2018 +0800
+
+    fixed the food tags, custom widgets, custom queries backend
+
+[33mcommit 07f361d57208d077151ef7fa875a616771f444a6[m
+Author: Raymond Maquiso <raymacz76@gmail.com>
+Date:   Wed Jun 27 03:41:27 2018 +0800
+
+    mostly done w/ main logic & next is fixing the styles
+
+[33mcommit a76dc404cbd6b736b7a927efac0f6d0c489225fd[m
+Author: Raymond Maquiso <raymacz76@gmail.com>
+Date:   Sat Jun 23 10:58:22 2018 +0800
+
+     fixed scroll js & cpt package
+
+[33mcommit f3e5c11d267b0de834de8bbca6ede0e6a0aeb39d[m
+Author: Raymond Maquiso <raymacz76@gmail.com>
+Date:   Thu Jun 21 10:05:14 2018 +0800
+
+    added functionality for menu courses in main content - logic done
+
+[33mcommit 17ccde2433b0615ff19535f059ce29ef73c4dea8[m
+Author: Raymond Maquiso <raymacz76@gmail.com>
+Date:   Thu Jun 21 02:48:24 2018 +0800
+
+    successfully added new nested loop query as link for taxonomy on frontpage with pods plugin
+
+[33mcommit 03dd4b4439ea7bdfcd9658cb8b71d4c5d96cefaa[m
+Author: Raymond Maquiso <raymacz76@gmail.com>
+Date:   Thu Jun 14 05:17:22 2018 +0800
+
+    start dev
+
+[33mcommit 5a8507ac2dff14c21c99bb474e4f7c26680f8188[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Raymond Maquiso <raymacz76@gmail.com>
+Date:   Wed May 30 17:14:48 2018 +0800
+
+    first commit

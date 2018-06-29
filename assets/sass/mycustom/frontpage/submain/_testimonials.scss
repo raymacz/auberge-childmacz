@@ -1,0 +1,46 @@
+
+/* testimonials */
+
+blockquote.bgtesti {
+  margin: 0;
+  padding: 0;
+  min-height: 500px;
+  position: relative;
+  font-size: .9em;
+}
+blockquote.bgtesti:after, blockquote.bgtesti:before  {
+  content: none;
+}
+
+blockquote.bgtesti .quote {
+  background-color: hsla(43, 100%, 5%, 0.7);
+  padding: 20px 5%;
+  position: absolute;
+  bottom: 0;
+  width: 75%;
+  border-radius: 0 50px 0 0;
+  color: white;
+}
+blockquote.bgtesti .quote:hover {
+  background-color: hsla(43, 100%, 5%, .9);
+}
+
+blockquote.bgtesti span.intro, blockquote.bgtesti span.client {
+  font-weight: 700;
+  box-sizing: border-box;
+  line-height: .8;
+}
+
+blockquote.bgtesti span.more,
+span.client {
+  font-size: 0;
+  line-height: 0;
+  padding-top: 20px;
+}
+
+.quote:hover .more, .quote:hover .client {
+  display: block;
+  transition: all .5s ease-in;
+  font-size: 1em;
+  line-height: 1.2;
+}
