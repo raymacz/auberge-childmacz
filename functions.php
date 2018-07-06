@@ -79,6 +79,8 @@ add_filter('wmhook_wm_register_assets_register_styles', function($styles) {
    $reg_styles = array(
             // 'wm-style-b4css'  => array( wm_get_stylesheet_directory_uri( 'assets/css/bootstrap.css' ) ),
             'wm-style-b4css'  => array( 'src' => 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css'),
+            'fontawesome-css'  => array( 'src' => 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'),
+            'nova-font'  => array( 'src' => 'http://site1.net/wp-content/plugins/jetpack/modules/custom-post-types/css/nova-font.css'),
     );
    //       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     $a =  array_slice($styles, 0, 0, true);
@@ -91,7 +93,8 @@ add_filter('wmhook_wm_register_assets_register_styles', function($styles) {
 // enqueue the newly added style
 add_filter('wmhook_wm_enqueue_assets_enqueue_styles', function($enqueue) {
     array_splice($enqueue, 1, 0, 'wm-style-b4css' );
-//    var_dump($enqueue);
+    array_splice($enqueue, 2, 0, 'fontawesome-css' );
+    array_splice($enqueue, 3, 0, 'nova-font' );
    return $enqueue;
 }, 10, 1);
 
@@ -209,16 +212,17 @@ add_filter('widget_text','do_shortcode');
 //show food tags in single content
 
 function RBTM_show_nova_menu_item_tag(){
-    if (is_single()  && get_post_type()=='nova_menu_item' )  {
-      echo '<footer class="entry-meta entry-meta-bottom">';
-//      the_terms(get_the_ID(), 'nova_menu_item_label','<span class="tags-links entry-meta-element" itemprop="keywords">',', ','</span>');
       $a_terms=array_slice(get_the_terms(get_the_ID(), 'nova_menu_item_label'), 1, 10, false);
-      echo '<span class="tags-links entry-meta-element" itemprop="keywords">';
-      foreach ($a_terms as $trm) {
-           echo '<a href="'. esc_url(get_term_link($trm->term_id)).'">'.$trm->name.'</a>';
-           if($trm != end($a_terms)) echo ',';
-      }
-      echo '</span></footer>';
+    if ($a_terms) {
+        if (is_single()  && get_post_type()=='nova_menu_item' )  {
+          echo '<footer class="entry-meta entry-meta-bottom">';
+            echo '<span class="tags-links entry-meta-element" itemprop="keywords">';
+            foreach ($a_terms as $trm) {
+                 echo '<a href="'. esc_url(get_term_link($trm->term_id)).'">'.$trm->name.'</a>';
+                 if($trm != end($a_terms)) echo ',';
+            }
+            echo '</span></footer>';
+        }
     }
 }
 add_action('tha_entry_bottom','RBTM_show_nova_menu_item_tag',10,1);
@@ -243,26 +247,6 @@ function RBTM_child_theme_food_menu_query( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'RBTM_child_theme_food_menu_query' );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /**

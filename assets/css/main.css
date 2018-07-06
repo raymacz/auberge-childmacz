@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /* FILE: main.scss */
 /* FILE: starter/_starter.scss */
+/*b4 grid  >=  < 576 768 992 1200 */
+/* max-width */
+/* min-width */
+/*typography*/
 /* FILE: starter/generic/_generic.scss */
 /* FILE: starter/generic/__normalize.scss */
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -865,6 +869,10 @@ body:before {
 	body:before {
 		content: "device_xxxxl";
 	}
+}
+
+a:hover {
+	color: rgba(104, 92, 59, 0.83);
 }
 
 /* FILE: starter/typography/_typography.scss */
@@ -4130,7 +4138,83 @@ a img:hover {
 }
 
 #top.home #content {
-	padding-bottom: 0px;
+	padding-bottom: 0;
+}
+
+div#course-list {
+	padding: 1.62em 0 0;
+	margin: 1.62em 0 0;
+	border-top-width: 2px;
+	border-top-style: solid;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+div#course-list ul {
+	margin: 0 1em auto;
+}
+
+div#course-list ul li {
+	border: 1px solid #ebedef;
+	position: relative;
+	margin: 10px auto;
+	white-space: nowrap;
+	text-transform: uppercase;
+	list-style-type: none;
+	border-radius: 5px;
+	transition: all .2s ease-in-out;
+}
+
+div#course-list ul li:hover {
+	box-shadow: 0.2rem 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.25);
+	transform: translateX(0.62em);
+}
+
+div#course-list ul li mark.unicode {
+	box-shadow: none;
+	background-color: #ebedef;
+	margin: 0;
+	padding: 5px 10px;
+	display: inline-block;
+	font-size: 2em;
+}
+
+div#course-list ul li mark.unicode:before {
+	content: attr(data-bg-icon);
+}
+
+div#course-list ul li a {
+	text-decoration: none;
+}
+
+div#course-list ul li a:hover {
+	color: rgba(26, 18, 0, 0.8);
+}
+
+div#course-list ul li a span.txt {
+	margin-left: 20px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: inline-block;
+	font-size: 1.5em;
+	width: 69%;
+}
+
+div#course-list ul li span.qty {
+	color: gray;
+	position: absolute;
+	text-align: center;
+	right: 0;
+	font-size: 2em;
+	font-weight: 700;
+	vertical-align: unset;
+	top: 0;
+	/* border: 1px solid lightgray; */
+	min-width: 12%;
+	margin: 0;
+	background-color: #ebedef;
+	min-height: 100%;
 }
 
 /* FILE: main/footer/_footer.scss */
@@ -4313,6 +4397,74 @@ a img:hover {
 /* carousel wrapper rbtm */
 #top.home #page .front-page-widgets-wrapper {
 	margin-bottom: 0;
+}
+
+/* widget - new food items */
+div.execphpwidget li a.w-title {
+	display: inline-block;
+}
+
+div.execphpwidget li a.w-title:hover {
+	color: rgba(104, 92, 59, 0.83);
+	border-bottom: 2px solid rgba(104, 92, 59, 0.83);
+}
+
+div.execphpwidget li span {
+	display: block;
+	font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 0.8rem;
+	color: #333;
+	font-weight: 70;
+	line-height: 1;
+	text-decoration: none;
+}
+
+div.execphpwidget li span a {
+	color: rgba(26, 18, 0, 0.8);
+	font-size: 13px;
+	font-size: 0.8125rem;
+}
+
+div.execphpwidget small:before {
+	content: ' | ';
+}
+
+div.execphpwidget mark.unicode {
+	background-color: transparent;
+	box-shadow: 0.38em 0 0 transparent, -0.38em 0 0 transparent;
+}
+
+div.execphpwidget mark.unicode:before {
+	content: "\1F374";
+}
+
+#pods_widget_list-3 li a,
+#recent-posts-2 li a,
+.execphpwidget li a {
+	font-family: "Droid Serif";
+	font-size: 1rem;
+	color: #bb9077;
+	font-weight: 400;
+	line-height: 1.4;
+}
+
+#pods_widget_list-3 li a:hover,
+#recent-posts-2 li a:hover,
+.execphpwidget li a:hover {
+	color: rgba(104, 92, 59, 0.83);
+	border-bottom: 2px solid rgba(104, 92, 59, 0.83);
+	text-decoration: none;
+}
+
+/*unicode */
+#pods_widget_list-3 li:before {
+	content: "\e603";
+	font-family: 'nova-font';
+	display: inline-block;
+}
+
+#pods_widget_list-3 li a {
+	margin-left: 15px;
 }
 
 /* FILE: main/plugins/_plugins.scss */
@@ -5033,6 +5185,27 @@ span.client {
 	line-height: 1.2;
 }
 
+#cont-loc .loc-blk {
+	margin: 20px 0px 20px;
+}
+
+#cont-loc .loc-blk p.phone-icon {
+	font-size: 16px;
+	font-size: 1rem;
+	margin: 10px auto;
+}
+
+#cont-loc .loc-blk p.phone-icon a {
+	color: rgba(104, 92, 59, 0.83);
+}
+
+#cont-loc .loc-blk .confit-address a {
+	color: rgba(104, 92, 59, 0.83);
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 400;
+}
+
 /* location, mailing & career */
 div#mywork {
 	background-color: rgba(104, 92, 59, 0.83);
@@ -5055,6 +5228,10 @@ div#mywork {
 /* modals */
 .modal-header {
 	background-color: #5a5c51;
+}
+
+.modal-header .close span {
+	color: #fff;
 }
 
 .modal-title {
@@ -5093,44 +5270,94 @@ div#galfood {
 	padding-bottom: 20px;
 }
 
+@media screen and (max-width: 649px) {
+	div.ngg-galleryoverview {
+		display: block !important;
+		text-align: center;
+	}
+	div.ngg-galleryoverview .ngg-gallery-thumbnail-box {
+		float: none;
+		display: inline-block;
+	}
+}
+
 /** events **/
 /* th.simcal-nav.simcal-prev-wrapper, th.simcal-nav.simcal-current, th.simcal-nav.simcal-next-wrapper {
     background-color: linen;
 } */
-.simcal-calendar-head tr:nth-child(1) {
-	background-color: #7d6852;
+table.simcal-calendar-grid .simcal-calendar-head tr:nth-child(1) {
+	background-color: #7d6954;
 }
 
-.simcal-calendar-head tr:nth-child(2) {
-	background-color: #fbf5ef;
+table.simcal-calendar-grid .simcal-calendar-head tr:nth-child(2) {
+	background-color: #ebedef;
 }
 
-th.simcal-current h3 {
-	color: white;
+table.simcal-calendar-grid th.simcal-current h3 {
+	color: #ebedef;
 }
 
-.simcal-default-calendar-light .simcal-nav-button {
-	color: white;
+table.simcal-calendar-grid .simcal-default-calendar-light .simcal-nav-button {
+	color: #ebedef;
 }
 
-.simcal-default-calendar-light .simcal-nav-button:disabled, .simcal-default-calendar-light .simcal-nav-button:disabled:hover {
-	color: #7d6853 !important;
+table.simcal-calendar-grid .simcal-default-calendar-light .simcal-nav-button:disabled, table.simcal-calendar-grid .simcal-default-calendar-light .simcal-nav-button:disabled:hover {
+	color: #7d6954 !important;
 }
 
-.simcal-next-wrapper {
+table.simcal-calendar-grid .simcal-next-wrapper {
 	border-radius: 0 10px 10px 0px;
 }
 
-.simcal-prev-wrapper {
+table.simcal-calendar-grid .simcal-prev-wrapper {
 	border-radius: 10px 0 0px 10px;
 }
 
-.simcal-default-calendar-light .simcal-nav-button:focus, .simcal-default-calendar-light .simcal-nav-button:hover {
+table.simcal-calendar-grid .simcal-default-calendar-light .simcal-nav-button:focus, table.simcal-calendar-grid .simcal-default-calendar-light .simcal-nav-button:hover {
+	color: #ebedef;
+}
+
+table.simcal-calendar-grid th.simcal-nav.simcal-current h3 {
+	font-family: Arial, sans-serif;
+}
+
+table.simcal-calendar-grid .simcal-day-has-events .simcal-events-dots {
+	background-color: rgba(187, 144, 119, 0.37);
+}
+
+table.simcal-calendar-grid .simcal-day-has-events ul.simcal-events {
 	color: white;
 }
 
-th.simcal-nav.simcal-current h3 {
-	font-family: Arial, sans-serif;
+table.simcal-calendar-grid .simcal-day-has-events ul.simcal-events .simcal-event:hover {
+	text-decoration: none;
+	background-color: rgba(26, 18, 0, 0.8);
+	font-weight: bold;
+}
+
+table.simcal-calendar-grid .simcal-day-has-events ul.simcal-events li:nth-child(1) {
+	background-color: rgba(0, 123, 255, 0.82);
+}
+
+table.simcal-calendar-grid .simcal-day-has-events ul.simcal-events li:nth-child(2) {
+	background-color: rgba(41, 168, 71, 0.87);
+}
+
+table.simcal-calendar-grid .simcal-day-has-events ul.simcal-events li:nth-child(3) {
+	background-color: rgba(220, 56, 72, 0.84);
+}
+
+table.simcal-calendar-grid .simcal-day-has-events ul.simcal-events li:nth-child(4) {
+	background-color: #ad8305;
+}
+
+table.simcal-calendar-grid .simcal-day-has-events ul.simcal-events li:nth-child(5) {
+	background-color: #650585;
+}
+
+.simcal-event-bubble {
+	border-radius: 20px;
+	border: 2px solid rgba(104, 92, 59, 0.83);
 }
 
 /** reservation date picker **/

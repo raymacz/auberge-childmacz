@@ -2,6 +2,9 @@
 /* modals */
 .modal-header {
     background-color: #5a5c51;
+    .close span {
+      color: #fff;
+    }
 }
 .modal-title {
    color: white;

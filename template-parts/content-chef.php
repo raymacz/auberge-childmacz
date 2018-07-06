@@ -10,9 +10,9 @@
             <h3 class="p-title">Meet Raymacz Culinary Executive & Partner</h3>
           </div>
           <div class="text-center" >
-            <p>The cuisine at <strong>Valenza</strong> is inspired by the diverse culture of all regions of Italy.</p>
-            <p>Executive Chef Stephen Herman’s focus is on classic and modern cooking methods using fresh seasonal and local ingredients to create a classic Italian menu with an updated culinary touch. The menu features a variety of antipasti, pasta, risotto and Italian entrees.</p>
-            <p>Executive Chef Stephen Herman’s focus is on classic and modern cooking methods using fresh seasonal and local ingredients to create a classic Italian menu with an updated culinary touch. The menu features a variety of antipasti, pasta, risotto and Italian entrees.</p>
+            <p>The cuisine at <strong>Restoraurantz</strong> is inspired by tons of culture of all regions of Africa.</p>
+            <p>Executive Chef Stephen Raymacz focus is on classic and modern cooking methods. Pommy ipsum smeg head whizz morris dancers come hither, bugger codswallop gob. Taking the mick middle class bog roll bow ties are cool posh nosh off t'shop, stew and dumps taking the mick know your onions pulled a right corker 'tis.</p>
+            <p>Pommy ipsum smeg head whizz morris dancers come hither, bugger codswallop gob. Taking the mick middle class bog roll bow ties are cool posh nosh off t'shop, stew and dumps taking the mick know your onions pulled a right corker 'tis.</p>
           </div>
           <!-- <div class="btn-label btn-wrap text-center">
             <a href="#" class="btn btn-warning"  target="_blank">  View our Main Menu </a>

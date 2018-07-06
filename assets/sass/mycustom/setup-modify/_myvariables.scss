@@ -5,4 +5,32 @@ $color-front-gold: hsl(45, 100%, 51%);
 $color_front-drkbrwn: hsla(43, 100%, 5%, 0.8);
 $color_front-lbrwn: hsla(43, 28%, 32%, 0.83);
 $color_front-lbrwn-a: hsl(30, 20%, 41%);
+$color_front-lbrwn-b: hsl(22, 33%, 60%);
+$color_lbrwn-b: hsla(22, 33%, 60%, 0.37);
 $color_front-bkwhite:hsl(210, 11%, 93%);
+$color-blk: #1b1c20;
+$color-blk2: #333;
+$color-blk3: #6a6c6e;
+$color-hover-red: hsl(354, 70%, 54%);
+
+
+/*b4 grid  >=  < 576 768 992 1200 */
+/* max-width */
+$query_b4_xs5_mx: 359px;
+$query_b4_xs_mx: 575px;
+$query_b4_sm_mx: 767px;
+$query_b4_md_mx: 991px;
+$query_b4_lg_mx: 1199px;
+
+/* min-width */
+$query_b4_xs5: 360px;
+$query_b4_sm: 576px;
+$query_b4_md: 768px;
+$query_b4_lg: 992px;
+$query_b4_xl: 1200px;
+
+
+/*typography*/
+$font-fam0: 'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-fam1: 'Vollkorn', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-fam2: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;

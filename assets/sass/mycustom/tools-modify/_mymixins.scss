@@ -31,9 +31,10 @@
 	clear: both;
 }
 
-@mixin font__script($size: false, $colour: false, $weight: false,  $lh: false) {
-		@if $size == false { font-size: 1rem; }
-    @if $colour == false { color: black; }
-    @if $weight == false { font-weight: 300; }
-    @if $lh == false { line-height: 1.5; }
+@mixin font__script($font-set: false, $size: false, $colour: false, $weight: false,  $lh: false) {
+    @if $font-set == false { font-family: $font-fam0; } @else {font-family: $font-set;};
+		@if $size == false { font-size: 1rem; } @else { font-size: $size+rem;}
+    @if $colour == false { color: $color-blk; }  @else { color: $colour}
+    @if $weight == false { font-weight: 300; }  @else { font-weight: $weight}
+    @if $lh == false { line-height: 1.5; }  @else {line-height: $lh}
 }

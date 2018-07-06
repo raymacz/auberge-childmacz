@@ -1,0 +1,17 @@
+#cont-loc {
+  .loc-blk {
+    margin: 20px 0px 20px;
+    p.phone-icon {
+      @include font-size(.8);
+      margin: 10px auto;
+        a {
+          color: $color_front-lbrwn;
+        }
+    }
+    .confit-address a {
+      color: $color_front-lbrwn;
+      @include font-size(.7);
+      font-weight: 400;
+    }
+  }
+}

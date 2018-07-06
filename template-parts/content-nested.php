@@ -15,33 +15,28 @@
 
 ?>
 
-<?php do_action( 'tha_entry_before' ); ?>
+<?php do_action('tha_entry_before'); ?>
 
-<article role="article" id="post-<?php the_ID(); ?>" <?php post_class(); echo apply_filters( 'wmhook_entry_container_atts', '' ); ?>>
+<article role="article" id="post-<?php the_ID(); ?>" <?php post_class(); echo apply_filters('wmhook_entry_container_atts', ''); ?>>
 
-	<?php do_action( 'tha_entry_top' );  ?>
+	<?php do_action('tha_entry_top');  ?>
 
-	<div class="entry-content"<?php echo wm_schema_org( 'entry_body' ); ?>>
+	<div class="entry-content"<?php echo wm_schema_org('entry_body'); ?>>
 
-		<?php do_action( 'tha_entry_content_before' ); ?>
+		<?php do_action('tha_entry_content_before'); ?>
 
 		<?php
 
-		if ( is_single() ) {
+        if (is_single()) {
+            the_content(apply_filters('wmhook_wm_excerpt_continue_reading', ''));
+        } else {
+            the_excerpt();
+        }
+        ?>
 
-                            the_content( apply_filters( 'wmhook_wm_excerpt_continue_reading', '' ) );
-
-		} else {
-
-			the_excerpt();
-
-		}
-                 echo "rbtm";   
-		?>
-
-		<?php do_action( 'tha_entry_content_after' ); ?>
+		<?php do_action('tha_entry_content_after'); ?>
 <?php // ============ insert code
-            $term_tax_id = get_post_meta(get_the_ID(), 'course_pack', true)['term_taxonomy_id'];   
+            $term_tax_id = get_post_meta(get_the_ID(), 'course_pack', true)['term_taxonomy_id'];
             //start new query ------------------------
             $args = array(
             'post_type' => 'course_pack',
@@ -57,27 +52,33 @@
                 ),
              ),
             );
+            $my_unicode = '<mark class="unicode" title="U+1F374: FORK AND KNIFE" style="color: black;">🍴</mark>';
             $myquery_course = new WP_Query($args);
             if ($myquery_course->have_posts()) {
-                echo "<pre> <p style='color: blue;'>Package Courses:    </p> ";
-                while ($myquery_course->have_posts()) {  $myquery_course->the_post();
-                    // start template; =============================
-                print get_post_meta(get_the_ID(), 'course_qty', true);
-                    $term_id=get_post_meta(get_the_ID(), 'course_name', true)['term_taxonomy_id'];
-                    the_title('<p><a href="'.get_term_link((int)$term_id).'" target="_blank" rel="noopener">', '</a></p>');
-                    
-                    // end template =============================
-                    echo "<br />";
-                } // end while
-               echo "</pre>";
-            } // endif
+                ?>
+                <div id="course-list" class="wrap-course">
+                <h4>COURSES </h4>
+                <p>For this package, you can choose your own courses below:    </p>
+                    <ul>
+                <?php
+                while ($myquery_course->have_posts()) :  $myquery_course->the_post(); ?>
+                     <li>
+                            <mark class="unicode" data-bg-icon="&#x<?php echo get_post_meta(get_the_ID(), 'c_uni', true); ?>"></mark>
+                            <?php $term_id=get_post_meta(get_the_ID(), 'course_name', true)['term_taxonomy_id']; ?>
+                            <a href="<?php echo get_term_link((int)$term_id) ?>" target="_blank" rel="noopener"> <span class="txt"> <?php echo get_the_title(); ?></span></a>
+                            <span class="qty"><?php echo get_post_meta(get_the_ID(), 'course_qty', true); ?></span>
+                     </li>
+               <?php endwhile; // end while ?>
+                    </ul>
+                </div>
+    <?php } // endif
             $myquery_course->reset_postdata();
 // ============================== end code
 ?>
 	</div>
 
-	<?php do_action( 'tha_entry_bottom' ); ?>
+	<?php do_action('tha_entry_bottom'); ?>
 
 </article>
 
-<?php do_action( 'tha_entry_after' ); ?>
+<?php do_action('tha_entry_after'); ?>

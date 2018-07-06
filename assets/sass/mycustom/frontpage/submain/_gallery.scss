@@ -14,3 +14,15 @@ div.ngg-galleryoverview {
 div#galfood {
     padding-bottom: 20px;
 }
+
+
+@media screen and (max-width: 649px) {
+  div.ngg-galleryoverview {
+    display: block !important;
+    text-align: center;
+    .ngg-gallery-thumbnail-box {
+      float: none;
+      display: inline-block;
+    }
+  }
+}

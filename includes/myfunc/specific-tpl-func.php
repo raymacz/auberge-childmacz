@@ -117,10 +117,10 @@ function RBTM_widg_sidebar_pod($params) {
   $menu_plink = get_permalink(1877);
   // Loop through the records returned
   while ( $mypod->fetch() ) {
-     $frag .= '<li><a href="'.esc_url($mypod->display('guid')).'">'.$mypod->display( 'post_title' ).'</a>';
+     $frag .= '<li><mark class="unicode"></mark><a class="w-title" href="'.esc_url($mypod->display('guid')).'">'.$mypod->display( 'post_title' ).'</a>';
      $frag .= '<span><a href="'.esc_url($menu_plink).$mypod->display('nova_menu.slug' ).'">';
-     $frag .= $mypod->display('nova_menu.name').'</a></span>';
-     $frag .= '<span>'.date("F j, Y", strtotime($mypod->display('post_date_gmt'))).'</span></li>';
+     $frag .= $mypod->display('nova_menu.name').'</a>'.'<small><i>'.date("F j, Y", strtotime($mypod->display('post_date_gmt'))).'</i></small></span>';
+     $frag .= '</li>';
   }
   $frag .="</ul>";
   return  $frag;

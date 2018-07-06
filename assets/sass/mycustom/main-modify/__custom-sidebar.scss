@@ -1,4 +1,67 @@
 /* carousel wrapper rbtm */
+
 #top.home #page .front-page-widgets-wrapper {
-    margin-bottom: 0;
+  margin-bottom: 0;
+}
+/* widget - new food items */
+div.execphpwidget {
+  li a.w-title {
+    display: inline-block;
+    &:hover {
+      color: $color_front-lbrwn;
+      border-bottom: 2px solid $color_front-lbrwn;
+    }
+  }
+
+    li span {
+      display: block;
+      @include font__script($font-fam2, 0.8, $color-blk2, 70, 1);
+      text-decoration: none;
+        a {
+          color: $color_front-drkbrwn;
+          @include font-size(.65);
+        }
+    }
+    small {
+      &:before {
+          content: ' | ';
+      }
+    }
+    mark.unicode {
+      background-color: transparent;
+      box-shadow: 0.38em 0 0 transparent, -0.38em 0 0 transparent;
+      &:before {
+        content: "\1F374";
+      }
+    }
+}
+
+
+#pods_widget_list-3 li a,
+#recent-posts-2 li a,
+.execphpwidget li a {
+  @include font__script('Droid Serif', 1, $color_front-lbrwn-b, 400, 1.4);
+  &:hover {
+    color: $color_front-lbrwn;
+    border-bottom: 2px solid $color_front-lbrwn;
+    text-decoration: none;
+  }
+
+}
+
+
+/*unicode */
+#pods_widget_list-3 li {
+  &:before {
+    // content: "\f460";
+    // font-family: 'Genericons';
+    content: "\e603";
+    font-family: 'nova-font';
+    display: inline-block;
+    // position: absolute;
+  }
+  a {
+    margin-left: 15px;;
+  }
+
 }

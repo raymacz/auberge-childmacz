@@ -8,12 +8,10 @@
               <h3 class="p-title">Ambience</h3>
             </div>
             <div id="myambience-two" class="text-center">
-              <p>Executive Chef Stephen Herman’s focus is on classic and modern cooking methods using fresh seasonal and local ingredients to create a classic Italian menu with an updated culinary touch. The menu features a variety of antipasti, pasta, risotto
-                and Italian entrees.</p>
-              <p>The menu features a variety of antipasti, pasta, risotto and Italian entrees.</p
-              <p>Executive Chef Stephen Herman’s focus is on classic and modern cooking methods using fresh seasonal and local ingredients to create a classic Italian menu with an updated culinary touch. The menu features a variety of antipasti, pasta, risotto
-              <p>Executive Chef Stephen Herman’s focus is on classic and modern cooking methods using fresh seasonal and local ingredients to create a classic Italian menu with an updated culinary touch. The menu features a variety of antipasti, pasta, risotto
-                  and Italian entrees.</p>
+              <p>Executive Chef focus is on classic and modern cooking methods. Bacon ipsum dolor amet short ribs brisket venison rump drumstick pig sausage prosciutto chicken spare ribs salami picanha doner. Kevin capicola sausage, buffalo bresaola venison turkey shoulder picanha ham pork tri-tip meatball meatloaf ribeye. Doner spare ribs andouille bacon sausage. Ground round jerky brisket pastrami shank. Bacon ipsum dolor amet short ribs brisket venison rump drumstick pig sausage prosciutto chicken spare ribs salami picanha doner. </p>
+              <p>Bacon ipsum dolor amet short ribs brisket venison rump drumstick pig sausage prosciutto chicken.</p>
+              <p>Bacon ipsum dolor amet short ribs brisket venison rump drumstick pig sausage prosciutto chicken spare ribs salami picanha doner. Kevin capicola sausage, buffalo bresaola venison turkey shoulder picanha ham pork tri-tip meatball meatloaf ribeye.  </p>
+              <p>Bacon ipsum dolor amet short ribs brisket venison rump drumstick pig sausage prosciutto chicken spare ribs salami picanha doner. Kevin capicola sausage, buffalo bresaola venison turkey shoulder picanha ham pork tri-tip meatball meatloaf ribeye. Doner spare ribs andouille bacon sausage. Ground round jerky brisket pastrami shank and Italian entrees.</p>
               <p>The menu features a variety of antipasti, pasta, risotto and Italian entrees.</p>
             </div>
           </div>
