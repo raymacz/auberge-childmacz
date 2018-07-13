@@ -1,3 +1,35 @@
+
+/*widget sidebar*/
+
+div#custom_html-2 {
+  @include font-size(.8);
+  .confit-phone {
+    padding-bottom: 20px;
+    a { text-decoration: none;}
+    i:before {
+      color: $color-front-gold;
+    }
+    span {
+      color: $color-front-gold;
+    }
+  }
+  .confit-address a {
+      text-decoration: none;
+      color: white;
+  }
+}
+
+
+
+a#toggle-mobile-sidebar:hover {
+    color: #fff;
+}
+
+a.more-link , #main span a, #posts .entry-title a, #primary a.menu-group-nav-link  {
+  text-decoration: none;
+}
+
+
 /* carousel wrapper rbtm */
 
 #top.home #page .front-page-widgets-wrapper {
@@ -64,4 +96,74 @@ div.execphpwidget {
     margin-left: 15px;;
   }
 
+}
+
+/* hover link */
+a.more-link:hover, #main .entry-meta span a:hover {
+  border-bottom: 2px solid $color_front-lbrwn;
+}
+
+
+/** front page footer quick links **/
+
+	%horizontal_widgets .widget {
+			@include responsive( map_get( $breakpoint, 'm' ) ) {
+				width: 95%;
+			}
+      @include responsive( map_get( $breakpoint, 'l' ) ) {
+				width: 29.333%; // 3 columns by default
+			}
+  }
+
+
+  footer#colophon ul#menu-quick-links li a, footer div.widget span, footer div.widget i::before{
+    color: white;
+  }
+
+  footer#colophon ul#menu-quick-links li {
+    border-top-style: none;
+    border-bottom-style: none;
+    &:before {
+      content: '';
+    }
+  }
+
+  @media only screen and (max-width: 879px) {
+    footer#colophon {
+      padding-top: 50px;
+      div#custom_html-6 {
+        margin-bottom: 7px;
+      }
+    }
+  }
+
+/* blockquote */
+
+div#custom_html-3 blockquote {
+    font-size: 0.9em;
+    background: hsla(0, 0%, 20%, 0.48);
+    padding: 1em 1em 1em 3em;
+    margin: 0;
+    text-align: left;
+    &:before {
+      display: block;
+      width: 38%;
+      height: 100%;
+      position: absolute;
+      top: -0.2em;
+      left: -0.15em;
+      content: "“";
+      font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+      font-size: 12em;
+      color: hsl(165, 6%, 13%);
+      font-weight: 400;
+      line-height: 100%;
+    }
+    &:after{
+      content: "";
+      border-top-width: 0;
+      border-top-style: none;
+      border-bottom-width: 0;
+      border-bottom-style: none;
+    }
 }

@@ -249,6 +249,12 @@ function RBTM_child_theme_food_menu_query( $query ) {
 add_action( 'pre_get_posts', 'RBTM_child_theme_food_menu_query' );
 
 
+function RBTM_change_readmore($readmore) {
+    return str_replace('Continue reading', 'Read more', $readmore);
+}
+add_filter('wmhook_wm_excerpt_continue_reading', 'RBTM_change_readmore',11 ,1);
+
+
 /**
  * Functions which enhance the theme for templates in general by hooking into WordPress.
  */
@@ -258,3 +264,5 @@ require_once(get_stylesheet_directory(). '/includes/myfunc/tpl-func.php');
  * Functions which enhance the theme & targets specific templates by hooking into Wordpress.
  */
 require_once(get_stylesheet_directory() . '/includes/myfunc/specific-tpl-func.php');
+
+

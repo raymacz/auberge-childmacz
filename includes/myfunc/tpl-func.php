@@ -22,14 +22,15 @@ add_filter( 'body_class', 'RBTM_body_classes', 10, 1 );
 
 
 
-// add class for each nav link & change href when pages switch from frontpage to any
+
 function add_specific_menu_location_atts( $atts, $item, $args, $depth ) {
+    // add class for each nav link & change href when pages switch from frontpage to any
     if( $args->theme_location == 'primary' ) {
       // add the desired attributes:
       $atts['class'] = 'menu-link-class';
     }
-      // change menu links when not in frontpage for smooth scrolling
-    if(!is_front_page() && $args->theme_location == 'primary')   {
+      // change menu links when not in frontpage for smooth scrolling // Primary Links && Footer Quick Links
+    if(!is_front_page() && ($args->theme_location == 'primary' || ($args->theme_location == '' && $args->menu->term_id == 271) )) {
       switch ($atts['href']) {
           case '#top':
               $atts['href'] = get_home_url();
@@ -58,8 +59,9 @@ function add_specific_menu_location_atts( $atts, $item, $args, $depth ) {
           default:
               break;
       }
-
+//    
     }
+    
     return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'add_specific_menu_location_atts', 10, 4 );

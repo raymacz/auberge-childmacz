@@ -16,12 +16,14 @@
 // @import '../mycustom/setup-modify/myvariables';  // 'starter/starter';
 // @import '../mycustom/tools-modify/mymixins';  //  'starter/starter';
 // @import 'mycustom/frontpage/main';      // 'starter/starter' all files
+// @import 'mycustom/myplugin/myplugin';
 // @import 'mycustom/events-page/events';
 // @import 'mycustom/reservation-page/reservation';
 // @import '../../mycustom/main-modify/_custom-menu';   // assets\sass\main\menu\_menu.scss
 // @import '../../mycustom/main-modify/_custom-sidebar'; // assets\sass\main\sidebar\_sidebar.scss
 // @import '../../mycustom/main-modify/_custom-headings'; // assets\sass\main\headings\_headings.scss
 // @import '../../mycustom/main-modify/_custom_content'; // assets\sass\main\content\_content.scss
+// @import '../../mycustom/main-modify/_custom_footer'; // assets\sass\main\footer\_footer.scss
 
 
 // Imports
@@ -33,6 +35,8 @@
 	@import 'main/main';
 
 	@import 'mycustom/frontpage/main';
+
+	@import 'mycustom/myplugin/myplugin';
 
 	@import 'mycustom/events-page/events';
 

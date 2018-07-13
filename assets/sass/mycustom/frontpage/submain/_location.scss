@@ -3,15 +3,24 @@
     margin: 20px 0px 20px;
     p.phone-icon {
       @include font-size(.8);
-      margin: 10px auto;
+      margin: 20px 0 auto;
+      border-top: 2px solid $color_front-bkwhite;
+      padding-top: 10px;
         a {
           color: $color_front-lbrwn;
+          @include font-size(.8);
         }
     }
-    .confit-address a {
-      color: $color_front-lbrwn;
-      @include font-size(.7);
-      font-weight: 400;
-    }
+    .confit-address {
+      padding-bottom: 20px;
+       a {
+          color: $color_front-lbrwn;
+          @include font-size(.7);
+          font-weight: 400;
+       }
+  }
+  }
+  a {
+    text-decoration: none;
   }
 }

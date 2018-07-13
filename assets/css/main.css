@@ -875,6 +875,10 @@ a:hover {
 	color: rgba(104, 92, 59, 0.83);
 }
 
+a:focus {
+	outline: none;
+}
+
 /* FILE: starter/typography/_typography.scss */
 html {
 	font-size: 100%;
@@ -2768,6 +2772,12 @@ h1, h2, h3,
 	line-height: 0.5;
 }
 
+/* http://site1.net/package-menu/ */
+.page-template-_menupack h1.page-title {
+	padding-top: 0;
+	border: none;
+}
+
 /* FILE: main/header/_header.scss */
 .site-header {
 	position: relative;
@@ -3687,6 +3697,18 @@ a img:hover {
 	color: inherit;
 }
 
+/** center pagination **/
+#main nav.pagination {
+	display: block;
+	margin: auto;
+}
+
+@media screen and (min-width: 672px) {
+	nav.pagination a, nav.pagination span.page-numbers {
+		margin-right: 0;
+	}
+}
+
 /* FILE: main/content/__parted.scss */
 .post-table-of-contents a:before {
 	content: '\f404';
@@ -4217,6 +4239,18 @@ div#course-list ul li span.qty {
 	min-height: 100%;
 }
 
+/** center pagination **/
+#main nav.pagination {
+	display: block;
+	margin: auto;
+}
+
+@media screen and (min-width: 672px) {
+	nav.pagination a, nav.pagination span.page-numbers {
+		margin-right: 0;
+	}
+}
+
 /* FILE: main/footer/_footer.scss */
 .site-footer {
 	padding: 6% 0;
@@ -4236,6 +4270,10 @@ div#course-list ul li span.qty {
 
 .site-info-container {
 	overflow: hidden;
+}
+
+footer#colophon .social-links-items a:before {
+	font-size: 2em;
 }
 
 /* FILE: main/sidebar/_sidebar.scss */
@@ -4394,6 +4432,41 @@ div#course-list ul li span.qty {
 }
 
 /* FILE: main/sidebar/__footer.scss */
+/*widget sidebar*/
+div#custom_html-2 {
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+div#custom_html-2 .confit-phone {
+	padding-bottom: 20px;
+}
+
+div#custom_html-2 .confit-phone a {
+	text-decoration: none;
+}
+
+div#custom_html-2 .confit-phone i:before {
+	color: #ffc105;
+}
+
+div#custom_html-2 .confit-phone span {
+	color: #ffc105;
+}
+
+div#custom_html-2 .confit-address a {
+	text-decoration: none;
+	color: white;
+}
+
+a#toggle-mobile-sidebar:hover {
+	color: #fff;
+}
+
+a.more-link, #main span a, #posts .entry-title a, #primary a.menu-group-nav-link {
+	text-decoration: none;
+}
+
 /* carousel wrapper rbtm */
 #top.home #page .front-page-widgets-wrapper {
 	margin-bottom: 0;
@@ -4465,6 +4538,78 @@ div.execphpwidget mark.unicode:before {
 
 #pods_widget_list-3 li a {
 	margin-left: 15px;
+}
+
+/* hover link */
+a.more-link:hover, #main .entry-meta span a:hover {
+	border-bottom: 2px solid rgba(104, 92, 59, 0.83);
+}
+
+/** front page footer quick links **/
+@media only screen and (min-width: 42em) {
+	.front-page-widgets-container .widget, .footer-widgets-container .widget {
+		width: 95%;
+	}
+}
+
+@media only screen and (min-width: 55em) {
+	.front-page-widgets-container .widget, .footer-widgets-container .widget {
+		width: 29.333%;
+	}
+}
+
+footer#colophon ul#menu-quick-links li a, footer div.widget span, footer div.widget i::before {
+	color: white;
+}
+
+footer#colophon ul#menu-quick-links li {
+	border-top-style: none;
+	border-bottom-style: none;
+}
+
+footer#colophon ul#menu-quick-links li:before {
+	content: '';
+}
+
+@media only screen and (max-width: 879px) {
+	footer#colophon {
+		padding-top: 50px;
+	}
+	footer#colophon div#custom_html-6 {
+		margin-bottom: 7px;
+	}
+}
+
+/* blockquote */
+div#custom_html-3 blockquote {
+	font-size: 0.9em;
+	background: rgba(51, 51, 51, 0.48);
+	padding: 1em 1em 1em 3em;
+	margin: 0;
+	text-align: left;
+}
+
+div#custom_html-3 blockquote:before {
+	display: block;
+	width: 38%;
+	height: 100%;
+	position: absolute;
+	top: -0.2em;
+	left: -0.15em;
+	content: "“";
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	font-size: 12em;
+	color: #1f2322;
+	font-weight: 400;
+	line-height: 100%;
+}
+
+div#custom_html-3 blockquote:after {
+	content: "";
+	border-top-width: 0;
+	border-top-style: none;
+	border-bottom-width: 0;
+	border-bottom-style: none;
 }
 
 /* FILE: main/plugins/_plugins.scss */
@@ -5192,11 +5337,19 @@ span.client {
 #cont-loc .loc-blk p.phone-icon {
 	font-size: 16px;
 	font-size: 1rem;
-	margin: 10px auto;
+	margin: 20px 0 auto;
+	border-top: 2px solid #ebedef;
+	padding-top: 10px;
 }
 
 #cont-loc .loc-blk p.phone-icon a {
 	color: rgba(104, 92, 59, 0.83);
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+#cont-loc .loc-blk .confit-address {
+	padding-bottom: 20px;
 }
 
 #cont-loc .loc-blk .confit-address a {
@@ -5204,6 +5357,10 @@ span.client {
 	font-size: 14px;
 	font-size: 0.875rem;
 	font-weight: 400;
+}
+
+#cont-loc a {
+	text-decoration: none;
 }
 
 /* location, mailing & career */
@@ -5225,6 +5382,35 @@ div#mywork {
   justify-content: center;
   text-align:center;
 } */
+#footer-widgets-container a {
+	text-decoration: none;
+}
+
+#footer-widgets-container h3.widget-title {
+	font-weight: 700;
+	border-bottom: 1px solid #ffc105;
+}
+
+#footer-widgets-container #custom_html-4 .confit-hours span {
+	display: block;
+	line-height: 1.5;
+	font-weight: 500;
+}
+
+#footer-widgets-container #custom_html-4 .confit-hours span i {
+	float: right;
+}
+
+#footer-widgets-container .confit-phone, #footer-widgets-container .confit-address {
+	margin-bottom: 3.62em;
+}
+
+@media screen and (max-width: 671px) {
+	#footer-widgets-container .widget {
+		width: 90%;
+	}
+}
+
 /* modals */
 .modal-header {
 	background-color: #5a5c51;
@@ -5246,7 +5432,8 @@ label input.form-control {
 	display: inline;
 }
 
-.modal-body .mc4wp-notice, .modal-body .mc4wp-error {
+.modal-body .mc4wp-error,
+.modal-body .mc4wp-notice {
 	color: red;
 }
 
@@ -5278,6 +5465,39 @@ div#galfood {
 	div.ngg-galleryoverview .ngg-gallery-thumbnail-box {
 		float: none;
 		display: inline-block;
+	}
+}
+
+/*sticky header menu base/menu/ */
+#menu-group-nav li a, #primary a.menu-group-nav-link {
+	color: gray;
+	background-color: transparent;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	text-decoration: none;
+	font-size: 1em;
+}
+
+#menu-group-nav li a:hover, #primary a.menu-group-nav-link:hover {
+	box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(74, 74, 74, 0.08);
+	border: 2px solid lightgray;
+}
+
+@media screen and (min-width: 1280px) {
+	body.sticky-menu-group-nav #menu-group-nav li a:hover {
+		color: #fff;
+		background-color: rgba(90, 92, 81, 0.92);
+		box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(249, 250, 251, 0.53);
+		border: 1px solid #fff;
+		font-weight: 700;
+	}
+	body.sticky-menu-group-nav #menu-group-nav li a:focus {
+		border: 3px solid lightgray;
+	}
+	body.sticky-menu-group-nav #menu-group-nav li a {
+		color: #fff;
+		border-radius: 10px;
+		font-weight: 500;
 	}
 }
 

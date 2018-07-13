@@ -1,20 +1,56 @@
+#footer-widgets-container {
+  a {
+    text-decoration: none;
+  }
+  h3.widget-title {
+    font-weight: 700;
+    border-bottom: 1px solid $color-front-gold;
+  }
 
-/* modals */
-.modal-header {
-    background-color: #5a5c51;
-    .close span {
-      color: #fff;
+  #custom_html-4 {
+    .confit-hours span {
+      display: block;
+      line-height: 1.5;
+      font-weight: 500;
+
+      i {
+        float: right;
+      }
     }
+  }
+  .confit-phone, .confit-address {
+    margin-bottom: 3.62em;
+  }
+
+  @media screen and (max-width: 671px) {
+    .widget {
+       width: 90%;
+    }
+  }
 }
+/* modals */
+
+.modal-header {
+  background-color: #5a5c51;
+
+  .close span {
+    color: #fff;
+  }
+}
+
 .modal-title {
-   color: white;
+  color: white;
 }
+
 .modal .modal-body {
-    color: black;
+  color: black;
 }
+
 label input.form-control {
-    display: inline;
+  display: inline;
 }
-.modal-body .mc4wp-notice, .modal-body .mc4wp-error {
+
+.modal-body .mc4wp-error,
+.modal-body .mc4wp-notice {
   color: red;
 }

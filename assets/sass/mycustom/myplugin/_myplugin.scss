@@ -1,0 +1,36 @@
+// plugin styling...
+
+/*sticky header menu base/menu/ */
+
+#menu-group-nav li a, #primary a.menu-group-nav-link {
+    color: gray;
+    background-color: transparent;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1em;
+}
+#menu-group-nav li a:hover, #primary a.menu-group-nav-link:hover {
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem hsla(0, 0%, 29%, 0.08);
+  border: 2px solid lightgray;
+}
+
+@media screen and (min-width: 1280px) {
+  body.sticky-menu-group-nav #menu-group-nav li a:hover  {
+    color: #fff;
+    background-color: hsla(71, 6%, 34%, 0.92);
+    box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem hsla(210, 17%, 98%, 0.53);
+    border: 1px solid #fff;
+    font-weight: 700;
+  }
+  body.sticky-menu-group-nav #menu-group-nav li a:focus {
+    border: 3px solid lightgray;
+  }
+
+  body.sticky-menu-group-nav #menu-group-nav li a{
+    color: #fff;
+    // border: 2px solid white;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+}

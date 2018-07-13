@@ -20,3 +20,16 @@
 	}
 
 }
+
+
+
+/** center pagination **/
+#main nav.pagination {
+  display: block;
+  margin: auto;
+}
+@media screen and (min-width: 672px) {
+  nav.pagination a, nav.pagination span.page-numbers {
+    margin-right: 0;
+  }
+}

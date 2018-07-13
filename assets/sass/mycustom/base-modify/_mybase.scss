@@ -1,3 +1,7 @@
 a:hover {
   color: $color_front-lbrwn;
 }
+
+a:focus {
+  outline: none;
+}
