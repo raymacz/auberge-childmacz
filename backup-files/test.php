@@ -11,7 +11,7 @@ error_reporting(E_ALL); //during developement, add this to help in making WP plu
 *
 */ ?>
 
-
+wp__body_class
 <?php
 /**
  * Standard post content

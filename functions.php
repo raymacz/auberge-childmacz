@@ -69,10 +69,11 @@ function RBTM_CHILD_THEME_SLUG_parent_theme_options() {
 // disable parent theme styles
 function rbtm_disable_parent_styles() {
 	wp_dequeue_style('wm-main'); // CSS Parent Theme
-	wp_dequeue_style('wm-stylesheet'); // CSS parent & child theme (if child overrides parent)
+	wp_dequeue_style('wm-custom'); // CSS parent & child theme (if child overrides parent)
+  // wp_dequeue_script( 'wm-scripts-global' );
   // note: no need to dequeue 'wm-custom' because of this 'deps' => array( 'wm-main' )
 }
- // add_action('wp_enqueue_scripts', 'rbtm_disable_parent_styles', 101);
+ add_action('wp_enqueue_scripts', 'rbtm_disable_parent_styles', 101);
 
 // check filter of styles
 add_filter('wmhook_wm_register_assets_register_styles', function($styles) {
@@ -81,6 +82,8 @@ add_filter('wmhook_wm_register_assets_register_styles', function($styles) {
             'wm-style-b4css'  => array( 'src' => 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css'),
             'fontawesome-css'  => array( 'src' => 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'),
             'nova-font'  => array( 'src' => 'http://site1.net/wp-content/plugins/jetpack/modules/custom-post-types/css/nova-font.css'),
+            'main-style-min'  => array( wm_get_stylesheet_directory_uri( 'assets/css/main-style.min.css' ) ),
+            // => array( wm_get_stylesheet_directory_uri( 'assets/css/main.css' ) ),
     );
    //       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     $a =  array_slice($styles, 0, 0, true);
@@ -95,6 +98,7 @@ add_filter('wmhook_wm_enqueue_assets_enqueue_styles', function($enqueue) {
     array_splice($enqueue, 1, 0, 'wm-style-b4css' );
     array_splice($enqueue, 2, 0, 'fontawesome-css' );
     array_splice($enqueue, 3, 0, 'nova-font' );
+    array_splice($enqueue, 3, 0, 'main-style-min' );
    return $enqueue;
 }, 10, 1);
 
@@ -107,7 +111,8 @@ add_filter('wmhook_wm_register_assets_register_scripts', function($scripts) {
             'wm-script-popper'  => array( 'src' => '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', 'deps' => array( 'jquery' ) ),
             'wm-script-b4js'    => array( 'src' => '//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', 'deps' => array( 'jquery' ) ),
             'wm-script-easing'  => array( wm_get_stylesheet_directory_uri( 'assets/js/vendor/jquery-easing/jquery.easing.min.js' ), 'deps' => array( 'jquery' ) ),
-            'wm-script-myfunctions'  => array( wm_get_stylesheet_directory_uri( 'assets/js/myfunctions.js' ), 'deps' => array( 'jquery' ) ),
+            'wm-script-main-min'  => array( wm_get_stylesheet_directory_uri( 'assets/js/customjs/main.min.js' ), 'deps' => array( 'jquery' ) ),
+            // 'wm-script-main-min'  => array( wm_get_stylesheet_directory_uri( 'assets/js/customjs/myfunctions.js' ), 'deps' => array( 'jquery' ) ),
     );
     $a =  array_slice($scripts, 0, 1, true);
     $b =  $reg_scripts;
@@ -121,7 +126,7 @@ add_filter('wmhook_wm_register_assets_register_scripts', function($scripts) {
 add_filter('wmhook_wm_enqueue_assets_enqueue_scripts', function($enqueue) {
     array_splice($enqueue, 0, 0, array('wm-script-tether','wm-script-popper', 'wm-script-b4js') );
     array_splice($enqueue, 5, 0, 'wm-script-easing' );
-    array_splice($enqueue, 6, 0, 'wm-script-myfunctions' );
+    array_splice($enqueue, 6, 0, 'wm-script-main-min' );
    return $enqueue;
 }, 10, 1);
 
@@ -264,5 +269,3 @@ require_once(get_stylesheet_directory(). '/includes/myfunc/tpl-func.php');
  * Functions which enhance the theme & targets specific templates by hooking into Wordpress.
  */
 require_once(get_stylesheet_directory() . '/includes/myfunc/specific-tpl-func.php');
-
-
