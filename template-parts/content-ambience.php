@@ -1,3 +1,13 @@
+<?php
+// CMB2 initialize
+/*
+$res1=  get_post_meta(701, '_FPage3_title', false);
+var_dump($res1);
+$res2=  get_post_meta(701, '_FPage3_body', false);
+var_dump($res2);
+*/
+?>
+
 <section id="about-ambi" style="background-image: url('<?php print get_template_directory_uri(); ?>-child/backup-files/img/bg/resto2.jpg');background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
   <div class="container-fluid wrap-menu">
     <div class="container">

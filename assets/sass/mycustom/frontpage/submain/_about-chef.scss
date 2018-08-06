@@ -23,6 +23,8 @@ div.photo-wrap {
   height: 350px;
   display: block;
   margin: auto;
+  -webkit-clip-path: inset(30px 10px 30px 10px);
+  clip-path: ellipse(150px 168px at 49% 49%);
 }
 .block-tpl.chefs {
   font-size: 18px;
@@ -43,13 +45,13 @@ div.photo-wrap {
   color: white;
 }
 
-.p-title::after {
-  position: absolute;
+.p-title::after, .page-template-_menupack h1.page-title::after {
+  // position: absolute;
   left: calc(50% - 100px);
   margin: 1px auto;
   bottom: 0;
   width: 30%;
-  height: 3px;
+  height: 2px;
   background: $color_front-gold;
   content: "---";
   color: $color_front-gold;
@@ -62,14 +64,24 @@ div.photo-wrap {
     justify-content: center;
      vertical-align: middle;
      /* align-items: center: */
-   }
-   section.logos .p-title::after {
-      left: calc(50% - 100px);
-      width: 200px;
-   }
-   section.logos h3, section.mail-subscription h3, section.careers h3 {
-     color: black;
-   }
+}
+#services .p-title::after{ width: 150px;}
+#about-menu .p-title::after{ width: 35%; }
+#occassion .p-title::after{ width: 50%; }
+#about-chef .p-title::after{ width: 70%; }
+#about-ambi .p-title::after{ width: 35%; }
+#cont-loc .logos .p-title::after{ width: 250px; }
+#primary .page-title::after{ width: 200px; }
+#mywork .mail-subscription .p-title::after{ width: 300px; }
+#mywork .careers .p-title::after{ width: 200px; }
+
+
+section.logos .p-title::after {
+  left: calc(50% - 100px);
+}
+section.logos h3, section.mail-subscription h3, section.careers h3 {
+ color: black;
+}
 
 section.mail-subscription {
   margin-bottom: 40px;

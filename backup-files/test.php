@@ -32,32 +32,67 @@ wp__body_class
 
 
 ?>
-
-
-<div >
-<div class="confit-phone">
-  <h3 class="widget-title">Contact Us</h3>
-            <a href="tel:0015629247263" itemprop="telephone">
-              <i class="menu-icon fa fa-phone-square"></i>
-              <span >+1&nbsp;562-924-7263</span>
-            </a>
+<div class="row">
+<div class="col-md-6">
+  <div class="form-group">
+    [text* your-name id:name class:form-control placeholder "Your Name*"]
+   </div>
+  <div class="form-group">
+    [email* your-email id:email class:form-control placeholder "Your Email*"]
+  </div>
+   <div class="form-group">
+   [tel tel-664 id:phone class:form-control placeholder "Your Phone"]
+   </div>
+   <div class="form-group">
+   [text* your-subject id:subject class:form-control placeholder "Your Subject*"]
+   </div>
 </div>
-<div class="confit-address" itemscope="" itemtype="http://www.jollibeeusa.com/" itemprop="address">
-  <h3 class="widget-title">Our Location</h3>
-  <a style="color:white;" href="https://goo.gl/maps/Rzpzum6P1Z32" target="_blank">
-  <i class="fas fa-map-marked-alt"></i> 17312 Norwalk Blvd, Cerritos, CA 90703, USA</a>
+<div class="col-md-6">
+  <div class="form-group">
+    [textarea* your-message id:message class:form-control placeholder "Your Message*"]
+   </div>
+</div>
+<div class="clearfix"></div>
+<div class="col-lg-12 text-center">
+[submit id:sendMessageButton class:btn class:btn-primary class:btn-xl class:text-uppercase "Send Message"]
 </div>
 </div>
 
 
 
-<ul>
-  <li><a href="#"><span>Menu</span></a></li>
-  <li><a href="#"><span>Catering</span></a></li>
-  <li><a href="#"><span>Reservation</span></a></li>
-  <li><a href="#"><span>Events</span></a></li>
-  <li><a href="#"><span>Blog</span></a></li>
-</ul>
+
+<form>
+  <div class="form-group">
+    [text* your-name id:recipient-name class:form-control placeholder "Your Name*"]
+  </div>
+  <div class="form-group">
+      [email* your-email id:recipient-emai class:form-control placeholder "Your Email*"]
+  </div>
+  <div class="form-group">
+    [tel* your-phone id:recipient-phone class:form-control placeholder "Your Phone"]
+  </div>
+  <div class="form-group">
+    [textarea your-message 30x5 id:message-text class:form-control placeholder "Your Message*"]
+  </div>
+  <div class="form-group">
+    <label style="color: rgb(140, 140, 140); font-family: sans-serif;">Attach Your Resume (required)<br>
+    [file* your-file filetypes:png|jpg|jpeg|pdf|doc|docx limit:2mb id:resume-upload class:form-control ]
+  </label>
+  </div>
+  <label>
+        [submit sMButton-cattrib class:btn class:btn-primary class:btn-xl class:text-uppercase "Send Message"]
+  </label>
+</form>
+
+
+
+
+
+
+
+
+  <input type="submit" data-backdrop="static" data-keyboard="true" value="Send Message">
+
 
 #myid.wrap.myclass[title="titlename"]>ul>(li#myid$$>span.style>a[href="#"]{mytext$$})*3
             <!--ctrl+e-->

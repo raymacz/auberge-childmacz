@@ -1,3 +1,13 @@
+<?php
+// CMB2 initialize
+
+/*
+$res0=  get_post_meta(701, '_FPage5__rg_location', false);
+var_dump($res0);
+*/
+
+?>
+
 <div id="cont-loc" class="container-fluid wrap-location text-center">
   <div class="container">
     <section class="logos">

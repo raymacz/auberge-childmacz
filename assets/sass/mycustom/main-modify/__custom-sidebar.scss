@@ -141,23 +141,27 @@ a.more-link:hover, #main .entry-meta span a:hover {
 
 div#custom_html-3 blockquote {
     font-size: 0.9em;
-    background: hsla(0, 0%, 20%, 0.48);
+    background: hsla(210, 11%, 15%, 0.45);
     padding: 1em 1em 1em 3em;
+    font-family: $font-fam2;
     margin: 0;
     text-align: left;
     &:before {
-      display: block;
-      width: 38%;
-      height: 100%;
-      position: absolute;
-      top: -0.2em;
-      left: -0.15em;
-      content: "“";
-      font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
-      font-size: 12em;
-      color: hsl(165, 6%, 13%);
-      font-weight: 400;
-      line-height: 100%;
+          display: block;
+          width: 38%;
+          height: 100%;
+          position: absolute;
+          top: -0.15em;
+          left: -0.30em;
+          content: "“";
+          font-weight: bolder;
+          font-size: 12em;
+          // color: $color-blk;
+          color: hsl(100, 1%, 60%);
+          font-weight: 400;
+          line-height: 100%;
+          border-bottom: none;
+          border-top: none;
     }
     &:after{
       content: "";
@@ -166,4 +170,10 @@ div#custom_html-3 blockquote {
       border-bottom-width: 0;
       border-bottom-style: none;
     }
+}
+
+@media screen and (max-width: 671px) {
+  #custom_html-2, #custom_html-3{
+    width: 100%;
+  }
 }

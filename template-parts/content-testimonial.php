@@ -1,3 +1,13 @@
+<?php
+// CMB2 initialize
+
+/*
+$res0=  get_post_meta(701, '_FPage4__rg_testimonial', false);
+var_dump($res0);
+*/
+
+?>
+
 <div id="cont-testi" class="container-fluid wrap-testi">
   <div class="row">
     <blockquote class="col-lg-6 col-xl-3 bgtesti" style="background: url('<?php bloginfo('template_directory'); ?>-child/backup-files/img/testimonial/testimonial-janeh.jpg') no-repeat center center; background-size: cover;">

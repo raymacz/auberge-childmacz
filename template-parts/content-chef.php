@@ -1,3 +1,16 @@
+<?php
+// CMB2 initialize
+/*
+$res1=  get_post_meta(701, '_FPage2_title', false);
+var_dump($res1);
+$res2=  get_post_meta(701, '_FPage2_body', false);
+var_dump($res2);
+//print $res2;
+$res3=  get_post_meta(701, '_FPage2_image', false);
+var_dump($res3);
+*/
+
+?>
 <section id="about-chef" >
   <div class="container">
     <div class="row">

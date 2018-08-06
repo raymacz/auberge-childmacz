@@ -99,7 +99,13 @@ function RBTM_package_cater() {
 
  //A function that is called from the Widget Sidebar
 
-function RBTM_widg_sidebar_pod($params) {
+function RBTM_widg_sidebar_pod(  $params = array(
+      'limit' => 5,
+      'where' => array(
+          'nova_menu.term_id != 264',
+      ),
+      'orderby' => 'post_date DESC',
+  ) ) {
   $arg= array(
       'nova_menu.term_id != 264',
   );

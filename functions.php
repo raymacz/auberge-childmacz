@@ -68,12 +68,12 @@ function RBTM_CHILD_THEME_SLUG_parent_theme_options() {
 
 // disable parent theme styles
 function rbtm_disable_parent_styles() {
-	wp_dequeue_style('wm-main'); // CSS Parent Theme
-	wp_dequeue_style('wm-custom'); // CSS parent & child theme (if child overrides parent)
+	// wp_dequeue_style('wm-main'); // CSS Parent Theme
+	// wp_dequeue_style('wm-custom'); // CSS parent & child theme (if child overrides parent)
   // wp_dequeue_script( 'wm-scripts-global' );
   // note: no need to dequeue 'wm-custom' because of this 'deps' => array( 'wm-main' )
 }
- add_action('wp_enqueue_scripts', 'rbtm_disable_parent_styles', 101);
+ // add_action('wp_enqueue_scripts', 'rbtm_disable_parent_styles', 101);
 
 // check filter of styles
 add_filter('wmhook_wm_register_assets_register_styles', function($styles) {
@@ -83,7 +83,7 @@ add_filter('wmhook_wm_register_assets_register_styles', function($styles) {
             'fontawesome-css'  => array( 'src' => 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'),
             'nova-font'  => array( 'src' => 'http://site1.net/wp-content/plugins/jetpack/modules/custom-post-types/css/nova-font.css'),
             'main-style-min'  => array( wm_get_stylesheet_directory_uri( 'assets/css/main-style.min.css' ) ),
-            // => array( wm_get_stylesheet_directory_uri( 'assets/css/main.css' ) ),
+            // 'main-style-min'  => array( wm_get_stylesheet_directory_uri( 'assets/css/main.css' ) ),
     );
    //       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     $a =  array_slice($styles, 0, 0, true);
@@ -98,7 +98,7 @@ add_filter('wmhook_wm_enqueue_assets_enqueue_styles', function($enqueue) {
     array_splice($enqueue, 1, 0, 'wm-style-b4css' );
     array_splice($enqueue, 2, 0, 'fontawesome-css' );
     array_splice($enqueue, 3, 0, 'nova-font' );
-    array_splice($enqueue, 3, 0, 'main-style-min' );
+    array_splice($enqueue, 4, 0, 'main-style-min' );
    return $enqueue;
 }, 10, 1);
 
@@ -254,11 +254,19 @@ function RBTM_child_theme_food_menu_query( $query ) {
 add_action( 'pre_get_posts', 'RBTM_child_theme_food_menu_query' );
 
 
+// Read More or Continue Reading...
 function RBTM_change_readmore($readmore) {
     return str_replace('Continue reading', 'Read more', $readmore);
 }
 add_filter('wmhook_wm_excerpt_continue_reading', 'RBTM_change_readmore',11 ,1);
 
+// Contact Form Custom Attribute
+function RBTM_wpcf7_form_elements( $content ) {
+  $str_pos = strpos( $content, 'name="sMButton-cattrib"' );
+  $content = substr_replace( $content, ' data-backdrop="static" data-keyboard="true" ', $str_pos, 0 );
+  return $content;
+}
+// add_filter( 'wpcf7_form_elements', 'RBTM_wpcf7_form_elements' );
 
 /**
  * Functions which enhance the theme for templates in general by hooking into WordPress.
@@ -269,3 +277,8 @@ require_once(get_stylesheet_directory(). '/includes/myfunc/tpl-func.php');
  * Functions which enhance the theme & targets specific templates by hooking into Wordpress.
  */
 require_once(get_stylesheet_directory() . '/includes/myfunc/specific-tpl-func.php');
+
+/**
+ * Functions for CMB2 plugin that creats custom fileds in metaboxes.
+ */
+require_once(get_stylesheet_directory() . '/includes/myfunc/my-cmb2.php');

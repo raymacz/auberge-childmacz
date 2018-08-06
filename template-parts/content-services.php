@@ -1,5 +1,15 @@
 
 <!-- Services -->
+<?php
+/*
+$res1=  get_post_meta(701, '_RBTM0_title1', false);
+var_dump($res1);
+$res2=  get_post_meta(701, '_RBTM0_description2', false);
+var_dump($res2);
+$res3=  get_post_meta(701, '_RBTM0__rg_services', false);
+var_dump($res3);
+*/
+?>
 <section id="services">
  <div class="container">
 			 <div class="row">

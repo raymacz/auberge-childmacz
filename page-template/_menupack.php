@@ -16,10 +16,6 @@
 /* translators: Custom page template name. */
 __( 'Package menu', 'auberge' );
 
-
-
-
-
 get_header();
 
 	?>

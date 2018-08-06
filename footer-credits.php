@@ -115,11 +115,13 @@
             <span class="wpcf7-form-control-wrap your-resume"><input name="your-resume" size="40" class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required" aria-required="true" aria-invalid="false" type="file"></span>
             </p>
           </div>
+          <p>
+                <input type="submit" data-backdrop="static" data-keyboard="true" value="Send Message">
+          </p>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
       </div>
     </div>
   </div>

@@ -9,7 +9,20 @@ Description:  Auberge Child Theme.
 License:      GNU General Public License v3
 License URI:  http://www.gnu.org/licenses/gpl-3.0.html
 
-This theme, like WordPress, is licensed under the GPL.
+This theme, like WordPress, is licensed under the GPL..
 Use it to make something cool, have fun, and share what you've learned with others.
 
-/* Put your custom CSS styles here... */
+/* Put your custom CSS styles here. */
+/* #cont-loc { */
+body {
+  background-image: url("../auberge-child/assets/img/bg-img14-w.png");
+  background-repeat: repeat;
+  background-position: center;
+}
+
+footer#colophon {
+  /* background-image: url("../auberge-child/assets/img/ios-linen.png"); */
+  background-image: url("../auberge-child/assets/img/txture.png");
+  background-repeat: repeat;
+  background-position: center;
+}

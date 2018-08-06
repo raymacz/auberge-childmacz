@@ -1,0 +1,65 @@
+/* FILE: main.scss */
+
+//
+// Main theme styles
+//
+// @package    Auberge
+// @copyright  WebMan Design, Oliver Juhas
+//
+// @since    2.2.0
+// @version  2.3.0
+//
+
+
+// rbtm added scss files for Auberge-child
+// This is the root SASS file for calling the subfiles.
+// @import '../mycustom/setup-modify/myvariables';  // 'starter/starter';
+// @import '../mycustom/tools-modify/mymixins';  //  'starter/starter';
+// @import 'mycustom/frontpage/main';      // 'starter/starter' all files
+// @import 'mycustom/myplugin/myplugin';
+// @import 'mycustom/events-page/events';
+// @import 'mycustom/reservation-page/reservation';
+// @import '../../mycustom/main-modify/_custom-menu';   // assets\sass\main\menu\_menu.scss
+// @import '../../mycustom/main-modify/_custom-sidebar'; // assets\sass\main\sidebar\_sidebar.scss
+// @import '../../mycustom/main-modify/_custom-headings'; // assets\sass\main\headings\_headings.scss
+// @import '../../mycustom/main-modify/_custom_content'; // assets\sass\main\content\_content.scss
+// @import '../../mycustom/main-modify/_custom_footer'; // assets\sass\main\footer\_footer.scss
+
+
+// Imports main.scss
+
+	@import '../setup';
+
+	@import '../starter/starter';
+
+	@import '../main/main';
+
+	@import '../mycustom/frontpage/main';
+
+	@import '../mycustom/myplugin/myplugin';
+
+	@import '../mycustom/events-page/events';
+
+	@import '../mycustom/reservation-page/reservation';
+
+
+
+  /* FILE: custom-styles.scss */
+
+  //
+  // Theme custom stylesheet
+  //
+  // IMPORTANT:
+  // Never save this file with minification enabled as it removes
+  // CSS comments in where you have customizer style values!
+  // Always use extended mode to export the file to CSS!
+  //
+  // Notes:
+  //   //* = Doesn't change via Customizer.
+  //
+  // @package    Auberge
+  // @copyright  WebMan Design, Oliver Juhas
+  //
+  // @since    2.2.0
+  // @version  2.2.0
+  //

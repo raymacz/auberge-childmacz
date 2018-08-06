@@ -1,7 +1,28 @@
 <?php
+// CMB2 initialize
+/*
+$res1=  get_post_meta(701, '_RBTM1_title1', false);
+var_dump($res1);
+$res2=  get_post_meta(701, '_RBTM1_body1', false);
+var_dump($res2);
+//print $res2;
+$res3=  get_post_meta(701, '_RBTM1_button1', false);
+var_dump($res3);
+
+$res4=  get_post_meta(701, '_RBTM1_title2', false);
+var_dump($res4);
+$res5=  get_post_meta(701, '_RBTM1_body2', false);
+var_dump($res5);
+$res6=  get_post_meta(701, '_RBTM1_phone', false);
+var_dump($res6);
+$res7=  get_post_meta(701, '_RBTM1_button2', false);
+var_dump($res7);
+*/
+// refer to CPT Pages for URLs
 $menu_page_obj=get_post(1877);
 $catering_page_obj=get_post(2226);
 ?>
+
 <section id="about-menu" style="background-image: url('<?php print get_template_directory_uri(); ?>-child/backup-files/img/bg/restaurant1.jpg');background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
   <div class="container-fluid wrap-menu">
     <div class="container">

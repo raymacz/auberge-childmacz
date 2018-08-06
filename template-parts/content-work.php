@@ -1,4 +1,13 @@
+<?php
+// CMB2 initialize
+/*
+$res0=  get_post_meta(701, '_FPage6__rg_mail', false);
+var_dump($res0);
+$res1=  get_post_meta(701, '_FPage6__rg_work', false);
+var_dump($res1);
+*/
 
+?>
   <div id="mywork" class="container-fluid mail-career ">
     <div class="container">
       <div class="row">
