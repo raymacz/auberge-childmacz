@@ -1,35 +1,25 @@
 <?php
 // CMB2 initialize
-/*
-$res1=  get_post_meta(701, '_FPage2_title', false);
-var_dump($res1);
-$res2=  get_post_meta(701, '_FPage2_body', false);
-var_dump($res2);
-//print $res2;
-$res3=  get_post_meta(701, '_FPage2_image', false);
-var_dump($res3);
-*/
+
+$fp_title=  get_post_meta(701, '_FPage2_title', true);
+$fp_body=  get_post_meta(701, '_FPage2_body', true);
+$fp_image=  get_post_meta(701, '_FPage2_image', true);
 
 ?>
 <section id="about-chef" >
   <div class="container">
     <div class="row">
       <div class="col-lg-5 photo-wrap">
-          <img src="<?php bloginfo('template_directory'); ?>-child/backup-files/img/team/2.jpg" alt="">
+          <img src="<?php echo isset($fp_image) ? esc_url($fp_image) : '#'; ?>" alt="person">
       </div>
       <div class="col-lg-7 col-lg-offset-0 blk-info">
         <div class=" block-tpl chefs">
           <div class="b-title text-center">
-            <h3 class="p-title">Meet Raymacz Culinary Executive & Partner</h3>
+            <h3 class="p-title"><?php echo isset($fp_title) ? esc_html($fp_title) : ''; ?></h3>
           </div>
           <div class="text-center" >
-            <p>The cuisine at <strong>Restoraurantz</strong> is inspired by tons of culture of all regions of Africa.</p>
-            <p>Executive Chef Stephen Raymacz focus is on classic and modern cooking methods. Pommy ipsum smeg head whizz morris dancers come hither, bugger codswallop gob. Taking the mick middle class bog roll bow ties are cool posh nosh off t'shop, stew and dumps taking the mick know your onions pulled a right corker 'tis.</p>
-            <p>Pommy ipsum smeg head whizz morris dancers come hither, bugger codswallop gob. Taking the mick middle class bog roll bow ties are cool posh nosh off t'shop, stew and dumps taking the mick know your onions pulled a right corker 'tis.</p>
+            <?php echo isset($fp_body) ? wpautop($fp_body) : ''; ?>
           </div>
-          <!-- <div class="btn-label btn-wrap text-center">
-            <a href="#" class="btn btn-warning"  target="_blank">  View our Main Menu </a>
-          </div> -->
         </div>
       </div>
     </div>

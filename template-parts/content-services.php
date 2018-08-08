@@ -1,49 +1,32 @@
-
 <!-- Services -->
 <?php
-/*
-$res1=  get_post_meta(701, '_RBTM0_title1', false);
-var_dump($res1);
-$res2=  get_post_meta(701, '_RBTM0_description2', false);
-var_dump($res2);
-$res3=  get_post_meta(701, '_RBTM0__rg_services', false);
-var_dump($res3);
-*/
+
+// initialize display
+$fp_title=  get_post_meta(701, '_RBTM0_title1', true);
+$fp_desc=  get_post_meta(701, '_RBTM0_description2', true);
+$fp_entries=  get_post_meta(701, '_RBTM0__rg_services', true);
+
 ?>
-<section id="services">
- <div class="container">
-			 <div class="row">
-				 <div class="col-lg-12 b-title text-center">
-              <h3 class="section-heading text-uppercase p-title">SERVICES</h2>
+  <section id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 b-title text-center">
+          <h3 class="section-heading text-uppercase p-title"><?php echo __($fp_title); ?></h2>
 				 </div>
 			 </div>
 			 <div class="row text-center">
+        <?php foreach ((array)$fp_entries as $key => $entry) { ?>
 				 <div class="col-md-4">
 					 <span class="fa-stack fa-4x">
 						 <i class="fa fa-circle fa-stack-2x text-primary"></i>
-						 <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+						 <i class="fa <?php echo isset($entry['_RBTM0_item-fa']) ? esc_html($entry['_RBTM0_item-fa']) : ''; ?> fa-stack-1x fa-inverse"></i>
 					 </span>
-					 <h4 class="service-heading">Catering</h4>
-					 <p class="text-muted">Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. Muffin danish chocolate soufflé pastry icing bonbon oat cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.</p>
+					 <h4 class="service-heading"><?php echo isset($entry['_RBTM0_item-title']) ? esc_html($entry['_RBTM0_item-title']) : ''; ?></h4>
+					 <p class="text-muted"><?php echo isset($entry['_RBTM0_item-desc']) ? wpautop($entry['_RBTM0_item-desc']) : ''; ?></p>
 				 </div>
-				 <div class="col-md-4">
-					 <span class="fa-stack fa-4x">
-						 <i class="fa fa-circle fa-stack-2x text-primary"></i>
-						 <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-					 </span>
-					 <h4 class="service-heading">Business Conferences</h4>
-					 <p class="text-muted">Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. Muffin danish chocolate soufflé pastry icing bonbon oat cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.</p>
-				 </div>
-				 <div class="col-md-4">
-					 <span class="fa-stack fa-4x">
-						 <i class="fa fa-circle fa-stack-2x text-primary"></i>
-						 <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-					 </span>
-					 <h4 class="service-heading">Private Events</h4>
-					 <p class="text-muted">Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. Apple pie jelly beans topping carrot cake danish tart cake cheesecake. Muffin danish chocolate soufflé pastry icing bonbon oat cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.</p>
-				 </div>
+       <?php } ?>
          <div class="col-lg-12 text-center">
-               <p class="text-muted">Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake. Powder cake jujubes oat cake. Lemon drops tootsie roll marshmallow halvah carrot cake.</p>
+               <p class="text-muted"><?php echo __($fp_desc); ?></p>
          </div>
 			 </div>       <!-- row -->
 		 </div>     <!-- container -->

@@ -1,11 +1,7 @@
 <?php
 // CMB2 initialize
-/*
-$res0=  get_post_meta(701, '_FPage6__rg_mail', false);
-var_dump($res0);
-$res1=  get_post_meta(701, '_FPage6__rg_work', false);
-var_dump($res1);
-*/
+$fp_mail=  get_post_meta(701, '_FPage6__rg_mail', true);
+$fp_work=  get_post_meta(701, '_FPage6__rg_work', true);
 
 ?>
   <div id="mywork" class="container-fluid mail-career ">
@@ -14,17 +10,12 @@ var_dump($res1);
         <div class="col-lg-7">
           <section class="mail-subscription">
             <div class="b-title">
-              <h3 class="p-title" style="text-align: center;">Join our Mailing List</h3>
+                <h3 class="p-title" style="text-align: center;"><?php echo isset($fp_mail[0]['_FPage6_mw-title']) ? esc_html($fp_mail[0]['_FPage6_mw-title']) : '';?></h3>
             </div>
-            <p>If you would like to join our mailing list to find out about the latest happenings, please enter your email below.</p>
-            <p>Sed elit mi, auctor quis nunc sit amet, molestie consectetur est. Fusce vel elementum nisl. Ut ut quam eu dolor consectetur eleifend. </p>
+            <?php echo isset($fp_mail[0]['_FPage6_mw-desc']) ? wpautop($fp_mail[0]['_FPage6_mw-desc']) : '';?> 
             <div class="wpb-wrapper">
-              <!-- <form name="ccoptin" action="#" target="_blank" method="post" _lpchecked="1">
-              <input id="ea" name="ea" size="20" value="" placeholder="Your Email" type="text">
-              <input id="go" name="go" value="Sign Up" class="submit" type="submit">
-            </form> -->
               <div class=" btn-wrap text-center">
-                <button type="button" class="btn btn-warning" data-backdrop="static" data-keyboard="true" data-toggle="modal" data-target="#subscribeModal" data-whatever="invgamez@gmail.com">Click here to subscribe</button>
+                <button type="button" class="btn btn-warning" data-backdrop="static" data-keyboard="true" data-toggle="modal" data-target="#subscribeModal" data-whatever="invgamez@gmail.com"><?php echo isset($fp_mail[0]['_FPage6_mw-title']) ? esc_html($fp_mail[0]['_FPage6_mw-button']) : '';?></button>
                 <!-- <a href="https://mailchi.mp/ed7b8db93cdf/slpage-resto" class="btn btn-warning" target="_blank">  Click here to subscribe </a> -->
               </div>
             </div>            <!-- wpb-wrapper -->
@@ -33,12 +24,11 @@ var_dump($res1);
         <div class="col-lg-5">
           <section class="careers">
             <div class="b-title">
-              <h3 class="p-title" style="text-align: center;">Work With Us</h3>
+                <h3 class="p-title" style="text-align: center;"><?php echo isset($fp_work[0]['_FPage6_mw-title']) ? esc_html($fp_work[0]['_FPage6_mw-title']) : '';?></h3>
             </div>
-            <p >Applicants must have experience with quality operations. Lorem ipsum dolor amet mustache knausgaard +1, blue bottle waistcoat tbh semiotics artisan synth stumptown gastropub cornhole celiac swag.</p>
-            <p >Complete the online application below.</p>
+            <?php echo isset($fp_work[0]['_FPage6_mw-desc']) ? wpautop($fp_work[0]['_FPage6_mw-desc']) : '';?>   
             <div class="btn-wrap text-center">
-              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#careerModal" data-whatever="invgamez@gmail.com">Online Application Form</button>
+              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#careerModal" data-whatever="invgamez@gmail.com"><?php echo isset($fp_work[0]['_FPage6_mw-title']) ? esc_html($fp_work[0]['_FPage6_mw-button']) : '';?></button>
             </div>
         </div>        <!-- col-md-6 -->
       </div>      <!-- row -->

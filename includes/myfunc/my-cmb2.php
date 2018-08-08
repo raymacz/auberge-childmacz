@@ -505,11 +505,11 @@ function RBTM_fpage_cmb2() {
         'show_option_none' => true,
         'default' => 'none',
         'options' => array(
-            'LA' => __( 'Los Angeles', 'rbtm' ),
-            'TX'   => __( 'Texas', 'rbtm' ),
-            'GA'   => __( 'Georgia', 'rbtm' ),
-            'NY'   => __( 'New York', 'rbtm' ),
-            'none'     => __( 'None', 'rbtm' ),
+            'Los Angeles'               => __( 'LA', 'rbtm' ),
+            'Texas'                     => __( 'TX', 'rbtm' ),
+            'Georgia'                   => __( 'GA', 'rbtm' ),
+            'New York'                  => __( 'NY', 'rbtm' ),
+            'Location Unspecified'      => __( 'None', 'rbtm' ),
         ),
     ));
     
