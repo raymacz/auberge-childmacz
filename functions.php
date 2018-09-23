@@ -268,6 +268,22 @@ function RBTM_wpcf7_form_elements( $content ) {
 }
 // add_filter( 'wpcf7_form_elements', 'RBTM_wpcf7_form_elements' );
 
+
+// [rbtm_brizy foo="foo-value"]
+function rbtmbrizy_func( $atts ) {
+	$a = shortcode_atts( array(
+		'foo' => 'something',
+		'bar' => 'something else',
+                'foo-value' => 'something else with value',
+	), $atts );
+//	return "foo = {$a['foo']}";
+        ob_start();
+        get_template_part( 'template-parts/content', 'chef' );
+        $output = ob_get_clean();
+        return $output;
+}
+add_shortcode( 'rbtm_page_builder', 'rbtmbrizy_func' );
+
 /**
  * Functions which enhance the theme for templates in general by hooking into WordPress.
  */
