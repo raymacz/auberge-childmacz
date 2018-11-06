@@ -29,7 +29,8 @@ function add_specific_menu_location_atts( $atts, $item, $args, $depth ) {
       // add the desired attributes:
       $atts['class'] = 'menu-link-class';
     }
-      // change menu links when not in frontpage for smooth scrolling // Primary Links && Footer Quick Links
+      // change menu links when not in frontpage for smooth scrolling 
+      // If menu is Primary (#205) or Footer Quick Links (#271)
     if(!is_front_page() && ($args->theme_location == 'primary' || ($args->theme_location == '' && $args->menu->term_id == 271) )) {
       switch ($atts['href']) {
           case '#top':

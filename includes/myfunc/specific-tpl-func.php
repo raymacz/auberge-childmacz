@@ -97,7 +97,7 @@ function RBTM_package_cater() {
 
 
 
- //A function that is called from the Widget Sidebar
+ //A function that is called from the Widget Sidebar to display NEW FOOD PRODUCTS
 
 function RBTM_widg_sidebar_pod(  $params = array(
       'limit' => 5,

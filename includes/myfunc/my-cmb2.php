@@ -1,6 +1,6 @@
 <?php
 /**
- * Functions for CMB2 plugin that creats custom fileds in metaboxes.
+ * Functions for CMB2 plugin that creats custom fields in metaboxes.
  *
  * @package auberge-child
  * @subpackage auberge

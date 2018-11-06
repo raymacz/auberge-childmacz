@@ -113,6 +113,7 @@ add_filter('wmhook_wm_register_assets_register_scripts', function($scripts) {
             'wm-script-easing'  => array( wm_get_stylesheet_directory_uri( 'assets/js/vendor/jquery-easing/jquery.easing.min.js' ), 'deps' => array( 'jquery' ) ),
             'wm-script-main-min'  => array( wm_get_stylesheet_directory_uri( 'assets/js/customjs/main.min.js' ), 'deps' => array( 'jquery' ) ),
             // 'wm-script-main-min'  => array( wm_get_stylesheet_directory_uri( 'assets/js/customjs/myfunctions.js' ), 'deps' => array( 'jquery' ) ),
+            //main.min.js is the minified version of myfunctions.js
     );
     $a =  array_slice($scripts, 0, 1, true);
     $b =  $reg_scripts;
@@ -236,19 +237,21 @@ add_action('tha_entry_bottom','RBTM_show_nova_menu_item_tag',10,1);
 
 function RBTM_child_theme_food_menu_query( $query ) {
 	if (
-		class_exists( 'Nova_Restaurant' )
-		&& ( isset( $query->query_vars['post_type'] ) && Nova_Restaurant::MENU_ITEM_POST_TYPE == $query->query_vars['post_type'] )
-	) {
-		$query->set( 'orderby', 'title' );
-    $query->set('tax_query', array(
-      array(
-        'taxonomy'=>'nova_menu',
-        'field'=> 'term_id',
-        'terms'=>array(264),
-        'include_children'=>true,
-        'operator'=>'NOT IN',
-      )
-    ));
+            class_exists( 'Nova_Restaurant' )
+            && ( isset( $query->query_vars['post_type'] ) 
+            && Nova_Restaurant::MENU_ITEM_POST_TYPE == $query->query_vars['post_type'] )
+	) 
+        {
+            $query->set( 'orderby', 'title' );
+            $query->set('tax_query', array(
+                        array(
+                          'taxonomy'=>'nova_menu',
+                          'field'=> 'term_id',
+                          'terms'=>array(264),
+                          'include_children'=>true,
+                          'operator'=>'NOT IN',
+                        )
+            ));
 	}
 }
 add_action( 'pre_get_posts', 'RBTM_child_theme_food_menu_query' );
@@ -272,9 +275,9 @@ function RBTM_wpcf7_form_elements( $content ) {
 // [rbtm_brizy foo="foo-value"]
 function rbtmbrizy_func( $atts ) {
 	$a = shortcode_atts( array(
-		'foo' => 'something',
-		'bar' => 'something else',
-                'foo-value' => 'something else with value',
+            'foo' => 'something',
+            'bar' => 'something else',
+            'foo-value' => 'something else with value',
 	), $atts );
 //	return "foo = {$a['foo']}";
         ob_start();
